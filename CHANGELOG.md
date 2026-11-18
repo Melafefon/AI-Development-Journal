@@ -1,0 +1,10 @@
+# Changelog
+
+## 2026-11-18 — Godot spatial video annotation experiment (documentation)
+- **Why:** Preserve the user-directed experiment of marking location-specific issues in recorded gameplay using a red pointer and contextual pop-up notes.
+- **Affected:** `README.md`, section 9.E (Godot RPG case study).
+- **Change:** Documented the proposed non-modal annotation interface, observed keyboard-focus/player-movement bug, marker rendered below inventory UI, animation/speed inspection request, and five concrete success criteria. Distinguished observations from unverified end-to-end implementation.
+- **Evidence:** Public article commit [28ed43b](https://github.com/Melafefon/AI-Development-Journal/commit/28ed43bfa58b7819d3e8e67d5af779c862da4494); operator's 18 November 2026 Godot test feedback. No private video or identifiable information published.
+- **Tests:** Documentation content update verified by successful GitHub commit; no Godot execution, video playback, timestamped-annotation integration or automated acceptance tests performed for this article update.
+- **Blockers:** Input focus isolation, marker UI layer, dismissible overlay behavior, timestamp/position binding, AI consumption of annotations remain to be validated.
+- **Next:** Run and capture a controlled annotated Godot playtest and report pass/fail for each acceptance criterion.
