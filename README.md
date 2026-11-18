@@ -15,7 +15,34 @@ The process grew through questions, practical experiments, tools that failed to 
 
 The central question became: **Can a non-developer coordinate increasingly complex AI-assisted projects by storing decisions and verifiable progress outside any one conversation?**
 
-## 2. The catalyst: Codex usage and token limits
+
+## 2. Dated timeline: from the first development-manager experiments to a coordinated system
+
+**Time window covered:** **15–18 November 2026**, with earlier exploratory work preceding this window. **15 November is the earliest date established by the project conversation records reviewed here, not a verified date when the person first began using AI or developing software.** The first public article was assembled on 18 November. Dates refer to documented decisions or reports, not necessarily to the first code commit. This is a rapid sequence of experiments, **not proof of production maturity**.
+
+| Date | Turning point | Why it changed the direction | Evidence level |
+| --- | --- | --- | --- |
+| **15 Nov 2026** | AI Development Manager / multi-model alternative to a single coding agent discussed | Codex as coordinator, Nemotron as worker, smaller local model for indexing/triage; motivates a deterministic orchestrator | Dated planning record; not proof of completed implementation |
+| **16 Nov 2026** | Local Windows tooling and practical transfer experiments | Python/WebView, BAT/PowerShell, LM Studio, source archives and Git-oriented workflows expose deployment and file-access constraints | Conversation/workflow record; individual execution results vary |
+| **16–17 Nov 2026** | Orbit becomes the named Bionic MCP layer | Separates tool execution, local-model access and memory from a future independent desktop application | Versioned Orbit repository and README |
+| **17 Nov 2026** | **NEXUS** named as separate Windows platform | Long-term replacement goal for specialized agent shells, without conflating Orbit with the UI | Dated architecture decision |
+| **17 Nov 2026** | **N-Worker** separated as the Nemotron-oriented worker | Clarifies coordinator vs execution worker vs UI responsibilities | Repository exists; full worker loop not independently verified |
+| **17 Nov 2026** | **NID — NEXUS Instruction Dictionary** conceived and iterated | Moves repeated instructions and code patterns into modular, compact, potentially deterministic representations | Dated discussion and reported development iterations; see NID chapter |
+| **17 Nov 2026** | **Night Runner** local Windows results reported as **9/9** | Shows the value of bounded tests, progress detection and actual local-model probes | Reported local result; separate Windows CI regression failed |
+| **17 Nov 2026** | **CONDUCTOR** coordination layer established | Four projects receive distinct repositories, ownership, review gates and staggered scheduled tasks | Dated coordination document |
+| **17 Nov 2026** | Human Godot RPG playtest reveals working mechanics and visual defects | Real gameplay becomes an acceptance test, not merely code generation | Dated tester observations |
+| **17–18 Nov 2026** | Game migration to the new canonical repository; visual GPT playtesting explored | Shows why assets, screenshots, controls, input events and repository state must be checked together | Migration incomplete/unverified; visual agent test not independently reproduced |
+| **18 Nov 2026** | Shared-memory, PowerShell/Git sync and shared-clipboard ideas consolidated | Reframes AI cooperation as durable, auditable records and safe OS integration | Mix of operator-reported workflow and explicitly proposed features |
+| **18 Nov 2026** | Public evidence-audited case study published and expanded | Turns private experiments into a falsifiable account inviting external criticism | Public article and Git history |
+
+### How to interpret the speed
+
+Between the first dated development-manager record on **15 November** and the coordinated, publicly documented state on **18 November** are **three elapsed calendar days**. In that short window, the work moved through architecture changes, repositories, prototypes, test reports, and human gameplay observations. This measures the *pace of iteration and documentation*, **not** the time required to produce fully validated products. A fast sequence of AI-generated artifacts can still leave substantial integration and verification work.
+
+**Inflection points:** (1) moving from model-only answers to bounded tools; (2) moving from file handoffs to Git history; (3) separating Orbit, N-Worker and NEXUS; (4) replacing repeated manual checks with Night Runner and Progress Guardian; (5) using Godot gameplay as a visual reality check; (6) considering NID to shift repeated tasks from probabilistic model output into compact, testable operations.
+
+
+## 3. The catalyst: Codex usage and token limits
 
 A major motivation was encountering **usage and token limits in Codex** during ongoing development. When access to a preferred coding agent was constrained, work risked stopping even though plans, repositories and other models remained available.
 
@@ -25,7 +52,8 @@ Codex limits were one trigger among others: lengthy conversations, fragmented pr
 
 This workflow does not eliminate quotas or guarantee seamless failover. It reduces dependence on one tool by making handoffs more explicit.
 
-## 3. The learning path: Markdown, ZIP, Base64 and extraction instructions
+
+## 4. The learning path: Markdown, ZIP, Base64 and extraction instructions
 
 Before adopting GitHub as the main shared state, several forms of moving work between tools and sessions were explored.
 
@@ -64,7 +92,8 @@ These experiments revealed an important distinction:
 
 The objective shifted from repeatedly transporting project snapshots to maintaining a durable reference point that any appropriately authorized agent could inspect.
 
-## 4. GitHub as the coordination backbone
+
+## 5. GitHub as the coordination backbone
 
 ```text
                   Human project initiator
@@ -92,7 +121,8 @@ Separate project conversations are useful because they keep each domain focused.
 
 The real experiment involved separate workstreams for game development, a desktop AI application, a local tool-integration component and an AI coding worker. Actual private project names, repository URLs and implementation details are omitted here.
 
-## 5. The scheduled-task experiment
+
+## 6. The scheduled-task experiment
 
 The initiator created recurring ChatGPT tasks, staggered across workstreams, to repeatedly inspect state and attempt bounded development steps. The intended cycle was:
 
@@ -105,7 +135,8 @@ The initiator created recurring ChatGPT tasks, staggered across workstreams, to 
 
 A key lesson: editing a GitHub instruction file does **not** automatically change a scheduled ChatGPT task. Similarly, a task's last-run timestamp is not proof of successful code execution. Automated instructions, repository state and actual tool permissions remain separate.
 
-## 6. Combining local and external AI models
+
+## 7. Combining local and external AI models
 
 Rather than expecting every model to perform every job, the evolving approach assigned tentative roles:
 
@@ -120,7 +151,8 @@ Rather than expecting every model to perform every job, the evolving approach as
 
 These are **design goals and experimental integrations**, not a claim that all paths are operational end to end. GitHub cannot directly access an offline local PC; local work depends on an actually running, permissioned bridge or runner.
 
-## 7. AI using another AI: delegation to Nemotron and other models
+
+## 8. AI using another AI: delegation to Nemotron and other models
 
 One of the most important experiments was not merely **using multiple models**, but exploring whether **one AI assistant could request work from another model**. Instead of the human manually copying every question between chat windows, the desired arrangement was for a coordinating assistant to formulate a bounded task, invoke a connected model such as **NVIDIA Nemotron** through an API or worker bridge, receive its result, review it, and incorporate the verified outcome into the shared GitHub state.
 
@@ -155,112 +187,8 @@ There are important boundaries:
 
 This part of the work remains an evolving experiment. The article does not assert that every proposed delegation path, autonomous write or model handoff was fully operational and tested.
 
-## 8. Decisions, evidence and handoffs
 
-An instruction such as “keep improving the project” is too vague to verify. A more useful handoff includes a target, approved paths, a baseline commit, constraints and tests:
-
-```yaml
-project: example/project
-objective: "One concrete, testable result"
-source_of_truth:
-  - README.md
-  - docs/DECISIONS.md
-baseline_commit: "<verified commit SHA>"
-allowed_paths:
-  - "src/approved-area/**"
-constraints:
-  - "Preserve existing working features"
-  - "Do not expose credentials"
-acceptance:
-  - "Run named tests"
-  - "Report actual errors and evidence"
-status: "proposed | running | blocked | verified"
-```
-
-This is an illustrative documentation convention, not an established automatic task-execution standard.
-
-The experiment adopted three evidence levels: **proposed**, **implemented**, and **verified**. A chat claim or planned feature is not a commit. A commit is not proof that the software works. A passing CI job validates only the checks actually run.
-
-## 9. What went wrong—and what it taught us
-
-**Conversation fragmentation:** Separate chats do not automatically share a synchronized state. A repository helps only when participants actively read the latest information.
-
-**Changes to project boundaries:** Renaming or migrating a project requires more than editing a document. Assets, history, references and scheduled task targets must be verified independently.
-
-**Local versus cloud execution:** A successful test in a remote CI environment does not prove a local desktop workflow works. Similarly, a local sandbox test does not prove unrestricted agent control.
-
-**Oversized transfers:** ZIP and Base64 can be useful, but neither guarantees integrity or correct project structure. Checksums, inspection, backups and real execution matter.
-
-**False confidence:** The process must record failures and uncertainty rather than treating every AI-generated status report as a successful outcome.
-
-## 10. Why the approach is interesting
-
-This is not a claim that a non-programmer has replaced a professional software engineering team. The practical observation is narrower: AI tools may allow someone without conventional development training to initiate and coordinate ambitious experiments, provided results are tested and responsibilities are explicit.
-
-The deeper design question is **how to preserve the continuity of work when the model, chat, machine or tool executing it changes**.
-
-Git provides history. GitHub provides durable coordination artifacts. AI conversations provide flexible reasoning. Local and cloud agents provide varying execution capabilities. Scheduling provides repeated opportunities to check state. The system works only insofar as those components exchange testable artifacts instead of relying on promises.
-
-## 11. Publication and privacy
-
-This is a sanitized public narrative, not a copy of the internal development notebook. Private account names, exact repository paths, internal scheduled instructions, credentials, local directories and personal biography have been excluded. The GitHub account hosting this article remains visible to readers as its publisher.
-
-The article is **AI-authored and human-directed**, and some details describe experiments and intentions rather than independently verified successful implementations. Future revisions should preserve those distinctions.
-
----
-
-*Written and edited by ChatGPT (OpenAI), under the guidance of the anonymous project initiator. First public edition: November 2026.*
-
-## 12. Evidence audit: what has actually been demonstrated?
-
-**Audit date: 18 November 2026.** This section is a snapshot of accessible repository READMEs, selected commit/PR metadata and the internal coordination record, not a full reproduction of every Windows or Godot runtime test. Specific private repository identifiers and paths are deliberately omitted from this public article.
-
-### The projects behind the method
-
-| Workstream | What it is | Evidence observed | What is still unproven |
-| --- | --- | --- | --- |
-| **Orbit** | An MCP-based bridge between an AI client, local tools and model providers, with bounded autonomous task experiments | A versioned implementation and documented syntax-repair/testing commands exist. The coordination record reports a **9/9 Windows Night Runner check** using a local model; this is *reported local evidence*, not an independently reproduced audit result | Fully validated autonomous file writes in the intended sandbox, unrestricted end-to-end desktop control, and sustained reliability |
-| **N-Worker** | An AI coding worker intended to receive delegated tasks and use models such as Nemotron | A dedicated repository and initial worker material exist | A complete independently demonstrated delegation → code → test → reviewed commit cycle, and repeated success-rate measurements |
-| **NEXUS** | A planned standalone Windows AI development environment with modular model, tool and workflow interfaces | Repository, architectural decisions and early prototypes exist | A stable standalone executable, verified feature parity with Orbit and production-ready autonomous development |
-| **Godot game experiment** | An evolving cyberpunk game used as a demanding AI-assisted development target | Game repository with source development, migration work, commits and UI/gameplay PRs; discussion of GitHub-mediated builds, tests and agent playtesting | Complete asset migration, reproducible game launch, verified visual playtesting loop and stable end-to-end gameplay |
-| **CONDUCTOR** | Cross-project coordination through dedicated ChatGPT conversations and durable GitHub instructions | Central coordination document, distinct project boundaries and scheduled-task plan | Fully automatic synchronization of chats, autonomous cross-project handoffs and demonstrated long-term unattended operation |
-
-The experiment also explored an **AI assistant calling another AI**: ChatGPT coordinating a task through a worker/API bridge to Nemotron or another model, then reviewing the output. This is a central design pattern. It should not be confused with a claim that every multi-model route is already tested and continuously available.
-
-### Historical milestones and learning sequence
-
-1. **Early local-model experiments:** Explore whether a locally running LLM can serve as a persistent assistant, call tools and potentially help improve its own software. This is a research direction; **a self-updating model or autonomous retraining loop was not verified**. Updating prompts, memory or application code is not the same as updating model weights.
-2. **Portable handoffs:** Use Markdown summaries, ZIP bundles, Base64 encoding and extraction instructions to carry context and files between limited interfaces.
-3. **Delegation experiments:** Introduce Nemotron and other models as possible coding/review resources invoked by an AI coordinator, subject to real API and worker integration.
-4. **Orbit:** Develop an MCP bridge with local-model connectivity, bounded tasks and safety-oriented sandbox tests.
-5. **N-Worker:** Separate the execution-worker responsibility from the coordination and interface layers.
-6. **NEXUS:** Plan an independent Windows environment to eventually unify useful capabilities without duplicating every subsystem.
-7. **Godot:** Attempt source generation, asset migration, CI validation, launching, screenshot-based inspection and interactive playtesting. **A reported GPT-through-GitHub playtesting experiment is a milestone claim pending a public, reproducible evidence package** showing the game launch, frames/screenshots, actual inputs, errors and outcomes.
-8. **CONDUCTOR and scheduled tasks:** Move from isolated chats toward a repository-centered cycle of observation, task selection, validation and handoff.
-
-### Progress and confidence bars — transparent editorial rubric
-
-The bars below measure **documented evidence-gate coverage**, *not* statistical reliability, product completeness, probability of success or a benchmarked quality score. Each of the four gates is worth 25 points: (1) defined scope, (2) repository artifact, (3) recorded test evidence, (4) independently reproduced end-to-end workflow. A gate counts only when evidence inspected for this article supports it. These conservative scores can change after a deeper audit.
-
-| Workstream | Evidence gates observed | Evidence coverage |
-| --- | --- | --- |
-| CONDUCTOR / GitHub coordination | 2 of 4 | **50%** █████░░░░░ |
-| Orbit | 3 of 4 *(test result reported, not reproduced here)* | **75%** ███████▌░░ |
-| N-Worker | 2 of 4 | **50%** █████░░░░░ |
-| NEXUS | 2 of 4 | **50%** █████░░░░░ |
-| Godot development / playtesting | 2 of 4 | **50%** █████░░░░░ |
-| Fully autonomous multi-model development loop | 1 of 4 | **25%** ██▌░░░░░░░ |
-
-**Interpretation:** These numbers are an intentionally simple *documentation audit rubric*. For example, 75% for Orbit does **not** mean Orbit works 75% of the time, and 50% for the game does **not** mean the game is half finished. There is not yet enough repeated, comparable runtime evidence to calculate genuine operational reliability percentages. The 9/9 reported checks describe one specific check set, not an overall system success rate.
-
-### What would prove the method more strongly?
-
-A reproducible demonstration would record: a human request; a coordinating AI reading GitHub state; a delegated worker/model receiving an explicit task; a source change on a scoped branch; CI validation; an actual Windows/Godot runtime test; and a final evidence-linked report read by a subsequent session. For Godot playtesting, preserve the game revision, runner environment, captured frames, input events and a failure/success trace. Repeat the same scenario many times before publishing operational reliability rates.
-
-**Current verdict:** The method is **demonstrated as a practical coordination and documentation workflow**. It is **partially demonstrated as a development and testing workflow**. The stronger claim—reliable, unattended, end-to-end multi-model software development including visual game playtesting—**remains unproven by the evidence reviewed for this public snapshot**.
-
-
-## 13. Extended experiment log: successes, failures, lessons and next tests
+## 9. Extended experiment log: successes, failures, lessons and next tests
 
 This expanded account was assembled from the project's working notes, repository documentation and issue/PR descriptions on **18 November 2026**. It deliberately distinguishes **human playtest observations**, **reported local checks**, **repository artifacts**, and **independently reproduced tests**. Internal repositories remain private, so this public report avoids linking to their confidential contents.
 
@@ -355,7 +283,7 @@ An earlier idea was to build a local AI assistant that could become more useful 
 
 No evidence inspected for this article establishes that a local LLM successfully **retrained its own weights**. A safer near-term experiment is *self-improvement of the surrounding software*: propose a bounded change, run reproducible evaluations, compare against baseline, require approval, then roll back on regression.
 
-### H. Local LLM memory and Git-to-PowerShell file synchronization
+### G. Local LLM memory and Git-to-PowerShell file synchronization
 
 The project initiator clarified an additional implementation detail: the local LLM setup uses **ordinary memory rather than a shared-memory arrangement**, and its local files are **updated from Git through PowerShell**. This is an operator-reported description of the actual workflow, not a claim independently measured or inspected in this publication.
 
@@ -378,7 +306,7 @@ GitHub repository / versioned state
 
 **What this establishes:** a concrete proposed/reported path for keeping the local assistant's supporting files aligned with Git. **What remains to verify:** the exact PowerShell commands, whether synchronization is automatic or manually triggered, conflict/rollback behavior, which files are updated, and evidence that the running model or tool stack reloads the new state correctly. Git should be treated as a versioned update mechanism, not as proof of online learning.
 
-### G. Cross-project lessons and a more rigorous proof plan
+### I. Cross-project lessons and a more rigorous proof plan
 
 **What the experiments already support:**
 - GitHub can preserve project decisions and handoffs across separate AI conversations.
@@ -400,7 +328,7 @@ GitHub repository / versioned state
 **Bottom line.** The most valuable result so far is not a claim that AI has replaced engineering. It is a documented progression from ad-hoc chats and file transfers to a multi-project, evidence-conscious development workflow—with a promising Night Runner, an increasingly capable Orbit, experimental delegation through N-Worker, an early NEXUS architecture, and a Godot RPG that forces AI-generated code to confront real runtime behavior.
 
 
-### I. Orbit's proposed shared memory between Nemotron and the local LLM
+### H. Orbit's proposed shared memory between Nemotron and the local LLM
 
 A further architectural idea in Orbit is **shared agent memory**: letting Nemotron and a locally hosted LLM consult and contribute to a common, versioned body of task knowledge instead of operating as isolated assistants.
 
@@ -464,4 +392,151 @@ Orbit's versioned README documents memory-related tools and an autonomous task l
 A meaningful test would ask the local model to store a bounded, non-sensitive observation; retrieve the same record through Nemotron's actual connected interface; have Nemotron add a review without overwriting the original; then retrieve both versions from a fresh session. The test should record IDs, hashes, access permissions, conflict behavior and whether the resulting information was used correctly.
 
 **What we learned:** The most useful meaning of “models sharing memory” is not that they share a brain. It is that they share **auditable knowledge and state**, with clear provenance and verification, so work can continue across models without silently turning guesses into facts.
+
+
+## 10. NID and related ideas: reducing the amount of intelligence needed for routine work
+
+### NID — NEXUS Instruction Dictionary
+
+**NID** stands for **NEXUS Instruction Dictionary**. The user's core idea was to create a **modular dictionary of predefined instructions and code patterns** that can be represented compactly, rather than asking an LLM to regenerate verbose code or instructions for every routine operation.
+
+In a conceptual example, a short instruction such as `UI.PANEL(type=terminal,theme=dark)` could refer to a known, versioned implementation. **This is an illustrative syntax, not a claim that this exact command exists in the codebase.** The real challenge is ensuring that a compact instruction expands or executes with the same intended semantics.
+
+**Why it matters for local models:** Smaller models are constrained by speed, context length and hardware. If a deterministic runtime can perform a known task, the model need not spend tokens rediscovering the procedure. The model can focus on exceptions, planning, novel code and review. This is **task compression**, not a method for magically compressing arbitrary software without loss or increasing a model's innate reasoning ability.
+
+**Design direction from the 17 November experiments:**
+- A small **NID runtime** interprets validated dictionary instructions deterministically.
+- **Modular dictionaries** can be loaded only when needed and can declare dependencies, versions, supported backends and permissions.
+- **Parameterized macros / compact bytecode** reduce repetitive representations while retaining inspectable expansion.
+- A **source compiler and typed intermediate representation (IR)** can map a supported subset of source into a constrained format.
+- **NID Memory** could encode repeated verified state and decisions compactly for later retrieval.
+- **NID Model Routing** could choose among deterministic rules, a small local model and a larger model such as Qwen or Nemotron.
+
+**Reported progress and limits.** A dated 17 November discussion described iterations **v0.1–v0.8**, moving from bytecode/macros to modular dictionaries, authorized execution, a Python-subset compiler and typed IR, and reported **50/50 GitHub tests passing**. This is a **conversation-reported test count**, not a result independently rerun for this article. It does **not** demonstrate arbitrary repository compression, lossless compression of any programming language, or production readiness. A stronger proof would publish the exact test suite, versioned dictionary, round-trip semantics checks and performance comparisons.
+
+### The 'sleeping' local model and hybrid execution idea
+
+A related question was whether only a small portion of a larger Qwen model could remain active while the rest sleeps, dynamically sharing RAM and VRAM. A model's weights cannot generally be treated as interchangeable independent submodels by simply loading a small slice. But **a useful system-level approximation** is possible: keep a tiny deterministic NID/task scheduler active; use a small model for easy classification or summaries; wake the full local LLM only when a task requires it; and route specialized review to another model. This may reduce GPU contention and model calls, although actual latency, VRAM use and energy savings need benchmarks.
+
+### Shared clipboard as a cross-application bridge
+
+A **shared clipboard** was proposed on **18 November** after one-file-at-a-time game migration proved cumbersome. Orbit could eventually offer permissioned text read/write/clear operations across approved Windows applications, with previews, provenance and size/type limits. This is **proposal only**, not an implemented or tested feature. Clipboard integration is not a substitute for Git's verified bulk file transfer, and it must not silently collect passwords or private clipboard history.
+
+### Context-aware UI and visual development
+
+The broader NEXUS vision includes **right-click-to-prompt** on interface elements, local file inspection, previews, and controlled input automation. A separate creative idea explored using an **editable 3D scene as structured guidance for generating 2D assets**: individual objects/layers carry their own prompts and spatial relationships, followed by a combined render. These ideas suggest a common design principle: *use structured, inspectable context rather than one giant ambiguous text prompt*. They remain proposals until implemented and tested.
+
+### Self-improvement with evidence, not uncontrolled self-modification
+
+NID also suggests a disciplined learning loop: detect a repeated successful action → propose a reusable dictionary instruction → test it against the original operation → version it → approve promotion → monitor regressions → roll back if needed. This can improve the **software around a model** without asserting that the model has trained itself. The dictionary must never be allowed to bypass execution permissions just because an instruction has a short name.
+
+
+## 11. Decisions, evidence and handoffs
+
+An instruction such as “keep improving the project” is too vague to verify. A more useful handoff includes a target, approved paths, a baseline commit, constraints and tests:
+
+```yaml
+project: example/project
+objective: "One concrete, testable result"
+source_of_truth:
+  - README.md
+  - docs/DECISIONS.md
+baseline_commit: "<verified commit SHA>"
+allowed_paths:
+  - "src/approved-area/**"
+constraints:
+  - "Preserve existing working features"
+  - "Do not expose credentials"
+acceptance:
+  - "Run named tests"
+  - "Report actual errors and evidence"
+status: "proposed | running | blocked | verified"
+```
+
+This is an illustrative documentation convention, not an established automatic task-execution standard.
+
+The experiment adopted three evidence levels: **proposed**, **implemented**, and **verified**. A chat claim or planned feature is not a commit. A commit is not proof that the software works. A passing CI job validates only the checks actually run.
+
+
+## 12. What went wrong—and what it taught us
+
+**Conversation fragmentation:** Separate chats do not automatically share a synchronized state. A repository helps only when participants actively read the latest information.
+
+**Changes to project boundaries:** Renaming or migrating a project requires more than editing a document. Assets, history, references and scheduled task targets must be verified independently.
+
+**Local versus cloud execution:** A successful test in a remote CI environment does not prove a local desktop workflow works. Similarly, a local sandbox test does not prove unrestricted agent control.
+
+**Oversized transfers:** ZIP and Base64 can be useful, but neither guarantees integrity or correct project structure. Checksums, inspection, backups and real execution matter.
+
+**False confidence:** The process must record failures and uncertainty rather than treating every AI-generated status report as a successful outcome.
+
+
+## 13. Why the approach is interesting
+
+This is not a claim that a non-programmer has replaced a professional software engineering team. The practical observation is narrower: AI tools may allow someone without conventional development training to initiate and coordinate ambitious experiments, provided results are tested and responsibilities are explicit.
+
+The deeper design question is **how to preserve the continuity of work when the model, chat, machine or tool executing it changes**.
+
+Git provides history. GitHub provides durable coordination artifacts. AI conversations provide flexible reasoning. Local and cloud agents provide varying execution capabilities. Scheduling provides repeated opportunities to check state. The system works only insofar as those components exchange testable artifacts instead of relying on promises.
+
+
+## 14. Evidence audit: what has actually been demonstrated?
+
+**Audit date: 18 November 2026.** This section is a snapshot of accessible repository READMEs, selected commit/PR metadata and the internal coordination record, not a full reproduction of every Windows or Godot runtime test. Specific private repository identifiers and paths are deliberately omitted from this public article.
+
+### The projects behind the method
+
+| Workstream | What it is | Evidence observed | What is still unproven |
+| --- | --- | --- | --- |
+| **Orbit** | An MCP-based bridge between an AI client, local tools and model providers, with bounded autonomous task experiments | A versioned implementation and documented syntax-repair/testing commands exist. The coordination record reports a **9/9 Windows Night Runner check** using a local model; this is *reported local evidence*, not an independently reproduced audit result | Fully validated autonomous file writes in the intended sandbox, unrestricted end-to-end desktop control, and sustained reliability |
+| **N-Worker** | An AI coding worker intended to receive delegated tasks and use models such as Nemotron | A dedicated repository and initial worker material exist | A complete independently demonstrated delegation → code → test → reviewed commit cycle, and repeated success-rate measurements |
+| **NEXUS** | A planned standalone Windows AI development environment with modular model, tool and workflow interfaces | Repository, architectural decisions and early prototypes exist | A stable standalone executable, verified feature parity with Orbit and production-ready autonomous development |
+| **Godot game experiment** | An evolving cyberpunk game used as a demanding AI-assisted development target | Game repository with source development, migration work, commits and UI/gameplay PRs; discussion of GitHub-mediated builds, tests and agent playtesting | Complete asset migration, reproducible game launch, verified visual playtesting loop and stable end-to-end gameplay |
+| **CONDUCTOR** | Cross-project coordination through dedicated ChatGPT conversations and durable GitHub instructions | Central coordination document, distinct project boundaries and scheduled-task plan | Fully automatic synchronization of chats, autonomous cross-project handoffs and demonstrated long-term unattended operation |
+
+The experiment also explored an **AI assistant calling another AI**: ChatGPT coordinating a task through a worker/API bridge to Nemotron or another model, then reviewing the output. This is a central design pattern. It should not be confused with a claim that every multi-model route is already tested and continuously available.
+
+### Earlier learning sequence (undated phases; see the dated timeline above)
+
+1. **Early local-model experiments:** Explore whether a locally running LLM can serve as a persistent assistant, call tools and potentially help improve its own software. This is a research direction; **a self-updating model or autonomous retraining loop was not verified**. Updating prompts, memory or application code is not the same as updating model weights.
+2. **Portable handoffs:** Use Markdown summaries, ZIP bundles, Base64 encoding and extraction instructions to carry context and files between limited interfaces.
+3. **Delegation experiments:** Introduce Nemotron and other models as possible coding/review resources invoked by an AI coordinator, subject to real API and worker integration.
+4. **Orbit:** Develop an MCP bridge with local-model connectivity, bounded tasks and safety-oriented sandbox tests.
+5. **N-Worker:** Separate the execution-worker responsibility from the coordination and interface layers.
+6. **NEXUS:** Plan an independent Windows environment to eventually unify useful capabilities without duplicating every subsystem.
+7. **Godot:** Attempt source generation, asset migration, CI validation, launching, screenshot-based inspection and interactive playtesting. **A reported GPT-through-GitHub playtesting experiment is a milestone claim pending a public, reproducible evidence package** showing the game launch, frames/screenshots, actual inputs, errors and outcomes.
+8. **CONDUCTOR and scheduled tasks:** Move from isolated chats toward a repository-centered cycle of observation, task selection, validation and handoff.
+
+### Progress and confidence bars — transparent editorial rubric
+
+The bars below measure **documented evidence-gate coverage**, *not* statistical reliability, product completeness, probability of success or a benchmarked quality score. Each of the four gates is worth 25 points: (1) defined scope, (2) repository artifact, (3) recorded test evidence, (4) independently reproduced end-to-end workflow. A gate counts only when evidence inspected for this article supports it. These conservative scores can change after a deeper audit.
+
+| Workstream | Evidence gates observed | Evidence coverage |
+| --- | --- | --- |
+| CONDUCTOR / GitHub coordination | 2 of 4 | **50%** █████░░░░░ |
+| Orbit | 3 of 4 *(test result reported, not reproduced here)* | **75%** ███████▌░░ |
+| N-Worker | 2 of 4 | **50%** █████░░░░░ |
+| NEXUS | 2 of 4 | **50%** █████░░░░░ |
+| Godot development / playtesting | 2 of 4 | **50%** █████░░░░░ |
+| Fully autonomous multi-model development loop | 1 of 4 | **25%** ██▌░░░░░░░ |
+
+**Interpretation:** These numbers are an intentionally simple *documentation audit rubric*. For example, 75% for Orbit does **not** mean Orbit works 75% of the time, and 50% for the game does **not** mean the game is half finished. There is not yet enough repeated, comparable runtime evidence to calculate genuine operational reliability percentages. The 9/9 reported checks describe one specific check set, not an overall system success rate.
+
+### What would prove the method more strongly?
+
+A reproducible demonstration would record: a human request; a coordinating AI reading GitHub state; a delegated worker/model receiving an explicit task; a source change on a scoped branch; CI validation; an actual Windows/Godot runtime test; and a final evidence-linked report read by a subsequent session. For Godot playtesting, preserve the game revision, runner environment, captured frames, input events and a failure/success trace. Repeat the same scenario many times before publishing operational reliability rates.
+
+**Current verdict:** The method is **demonstrated as a practical coordination and documentation workflow**. It is **partially demonstrated as a development and testing workflow**. The stronger claim—reliable, unattended, end-to-end multi-model software development including visual game playtesting—**remains unproven by the evidence reviewed for this public snapshot**.
+
+
+
+## 15. Publication and privacy
+
+This is a sanitized public narrative, not a copy of the internal development notebook. Private account names, exact repository paths, internal scheduled instructions, credentials, local directories and personal biography have been excluded. The GitHub account hosting this article remains visible to readers as its publisher.
+
+The article is **AI-authored and human-directed**, and some details describe experiments and intentions rather than independently verified successful implementations. Future revisions should preserve those distinctions.
+
+---
+
+*Written and edited by ChatGPT (OpenAI), under the guidance of the anonymous project initiator. First public edition: November 2026.*
 
