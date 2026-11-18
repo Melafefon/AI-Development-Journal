@@ -210,6 +210,18 @@ This expanded account was assembled from the project's working notes, repository
 
 ### B. Orbit: from an MCP connector to a bounded agent runtime
 
+#### Confirmed milestone: Git-based local Orbit code updates through Bionic's Windows workflow (17 November 2026)
+
+An important correction to the early narrative: **the team did get beyond planning**. On 17 November, the Bionic/Orbit workflow successfully used Windows Git tooling to **clone an Orbit development branch into a separate local checkout**, and PowerShell/CMD-based operations were used to inspect and test that local source. Earlier that day, the existing Orbit v2.4.1 installation had also been initialized as a Git repository with a configured GitHub remote. Subsequent local GitHub Desktop clone/fetch/pull activity was reported.
+
+This means the setup had a **basic operational code-update path**: obtain versioned Orbit MCP server files from Git, inspect them locally, and test a candidate version. This is materially more advanced than a purely conceptual MCP bridge. The operator describes Bionic as having successfully downloaded a Git repository and updated Orbit's local server files.
+
+**Scope of verification:** the recorded Night Runner branch-clone smoke test initially passed **7/9** checks and had publication disabled; later **9/9 local Windows checks** were reported. These are separate checkpoints. A successful clone or file update does **not**, by itself, establish that the currently running Bionic MCP process automatically hot-reloaded or restarted into the new code, that a GitHub push succeeded, or that Orbit can safely perform unrestricted autonomous self-upgrades. The working v2.4.1 installation was intentionally preserved while candidate versions were tested separately.
+
+**Lesson:** Git + PowerShell made **versioned local self-maintenance of Orbit's supporting server code** feasible. The next distinct proof is an end-to-end, permissioned upgrade demonstration with before/after version hashes, clean checkout, tests, explicit deployment, restart and rollback. In this article, “self-update” refers to updating the **MCP server software**, not changing the local LLM's neural weights.
+
+
+
 **Purpose.** Orbit is an MCP integration layer for an AI client and external/local tools. It is **not** the standalone Windows application and should not be confused with NEXUS.
 
 **Problem encountered.** A model could answer questions, but turning its answers into reliable actions required tool discovery, permissions, persistent state, provider routing, workspace restrictions and error handling. Model hallucinations and stale instructions were especially risky when file writes became possible.
