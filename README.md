@@ -355,6 +355,29 @@ An earlier idea was to build a local AI assistant that could become more useful 
 
 No evidence inspected for this article establishes that a local LLM successfully **retrained its own weights**. A safer near-term experiment is *self-improvement of the surrounding software*: propose a bounded change, run reproducible evaluations, compare against baseline, require approval, then roll back on regression.
 
+### H. Local LLM memory and Git-to-PowerShell file synchronization
+
+The project initiator clarified an additional implementation detail: the local LLM setup uses **ordinary memory rather than a shared-memory arrangement**, and its local files are **updated from Git through PowerShell**. This is an operator-reported description of the actual workflow, not a claim independently measured or inspected in this publication.
+
+The distinction matters because two mechanisms can be confused:
+
+1. **Model runtime memory:** where the model and its inference state reside while running. The operator describes the setup as using regular memory, not shared memory. This article does not infer specific VRAM/RAM allocations or hardware-level memory architecture without runtime measurements.
+2. **Git-managed local files:** a PowerShell-driven workflow can retrieve repository changes and update the local files used by the assistant. These may include instructions, scripts, configuration or external knowledge, depending on what is actually tracked. Updating these files **does not, by itself, retrain or change the neural network's weights**.
+
+A conceptual view of the reported workflow:
+
+```text
+GitHub repository / versioned state
+                |
+       Git operations via PowerShell
+                |
+        Local files on Windows
+                |
+       Local LLM application / tools
+```
+
+**What this establishes:** a concrete proposed/reported path for keeping the local assistant's supporting files aligned with Git. **What remains to verify:** the exact PowerShell commands, whether synchronization is automatic or manually triggered, conflict/rollback behavior, which files are updated, and evidence that the running model or tool stack reloads the new state correctly. Git should be treated as a versioned update mechanism, not as proof of online learning.
+
 ### G. Cross-project lessons and a more rigorous proof plan
 
 **What the experiments already support:**
