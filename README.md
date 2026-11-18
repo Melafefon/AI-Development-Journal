@@ -259,3 +259,120 @@ A reproducible demonstration would record: a human request; a coordinating AI re
 
 **Current verdict:** The method is **demonstrated as a practical coordination and documentation workflow**. It is **partially demonstrated as a development and testing workflow**. The stronger claim—reliable, unattended, end-to-end multi-model software development including visual game playtesting—**remains unproven by the evidence reviewed for this public snapshot**.
 
+
+## 13. Extended experiment log: successes, failures, lessons and next tests
+
+This expanded account was assembled from the project's working notes, repository documentation and issue/PR descriptions on **18 November 2026**. It deliberately distinguishes **human playtest observations**, **reported local checks**, **repository artifacts**, and **independently reproduced tests**. Internal repositories remain private, so this public report avoids linking to their confidential contents.
+
+### A. Night Runner: the experiment that deserves its own chapter
+
+**Problem.** A chat-based assistant can propose a fix, but how does the system keep checking work when the human is away, without allowing an uncontrolled agent to modify the entire machine? A recurring task is not enough: it needs a bounded runner, a model connection, a task journal, safety gates and evidence.
+
+**Experiment.** Orbit's *Night Runner* work explored repeatable local checks, including `local_model_review` and `sandbox_write_probe`, with a local Qwen model served through LM Studio. The broader system used a *Progress Guardian* to flag stagnation and blockers and a reporter to preserve run outcomes. Tests also exercised Git branch/reporting integration.
+
+**Positive result reported from the Windows environment.** A coordination note dated 17 November records **9/9 Night Runner checks passing**, including a local-model review taking approximately **9.7 seconds** and a sandbox write probe taking approximately **7.3 seconds**. The same report recorded `progress_blocked=false` and `stagnant_cycles=0`. These are valuable *reported local test results*, not a benchmark of long-term autonomous reliability; they were **not rerun independently for this article**.
+
+**Failure that mattered.** A separate GitHub Actions run passed its Ubuntu job but **failed its Windows Night Runner Git-branch integration regression**. The expected reporter state was `publication=pushed`, while the observed state was `failed_local_report_preserved`. The documented root cause was not established at that point. This is a concrete example of why a passing local probe and a passing CI pipeline are different evidence.
+
+**Environment mismatch.** GitHub-hosted CI cannot directly access a model server bound to the developer's local Windows machine. A remote CI job cannot establish that the local Qwen API or a real sandbox write succeeded unless the relevant machine and test evidence are explicitly connected.
+
+**Safety lesson.** The runner must distinguish a dry-run proposal, syntax validation, a write permitted inside a sandbox, and actual functional correctness. The controlled autonomous write experiment was separately marked **not verified** at the last documented checkpoint; a successful probe does not authorize claiming unrestricted write autonomy.
+
+**Conclusion.** Night Runner demonstrated a promising *test-and-report architecture* with encouraging local results, while exposing brittle reporting integration, machine-specific dependencies and the need for reproducible proof. The next credible test is a fully logged sequence: exact model response → bounded proposed edit → approved sandbox write → hash and syntax checks → functional test → Git publication → independently reviewed report.
+
+### B. Orbit: from an MCP connector to a bounded agent runtime
+
+**Purpose.** Orbit is an MCP integration layer for an AI client and external/local tools. It is **not** the standalone Windows application and should not be confused with NEXUS.
+
+**Problem encountered.** A model could answer questions, but turning its answers into reliable actions required tool discovery, permissions, persistent state, provider routing, workspace restrictions and error handling. Model hallucinations and stale instructions were especially risky when file writes became possible.
+
+**Implementation evidence.** The versioned Orbit README documents a **v2.4.1 beta** implementation with **34 MCP tools**, including six autonomous-runtime tools added to an earlier 28-tool base. Its bounded loop covers one JS/MJS/CJS/JSON file, model proposals, retry feedback, syntax checks, backups, hash-gated restoration, self-evaluation and restart-aware statuses. **Read-only dry-run is the default.** This is a real, described software artifact, but the README explicitly excludes arbitrary commands, full-repository changes, Godot validation and guaranteed semantic correctness.
+
+**Additional experiments.** Later ZETA notes report discovery of **43 tools and 61 knowledge documents** in a separate Bionic MCP instance. That is a reported environment snapshot, not proof that all 43 tools were exercised or that a beta upgrade was deployed to the running installation.
+
+**Failures and boundaries.** A GitHub CI Windows regression remained unresolved; autonomous write proof was incomplete; the local runner and cloud runner had different capabilities; and a model could return syntactically valid but incorrect code. The safety boundary was a logical path guard, **not** a hardened virtual machine.
+
+**What was learned.** Start with small, reversible, permissioned tasks. Preserve a working baseline while testing a new version separately. Use explicit model IDs and real inference requests, not just a health-check response. Store checksums, backups and error categories. Tool availability, tool correctness and safe execution are three separate claims.
+
+**Current assessment.** Orbit is the strongest documented *implemented technical subsystem* in this case study, but the evidence does not justify calling it a general autonomous coding platform.
+
+### C. N-Worker and Nemotron: one AI delegating to another AI
+
+**Purpose.** N-Worker is intended to provide a dedicated coding/execution worker, while Nemotron is one possible model resource. The architecture separates the **coordinator** (what to do, why and how to verify) from the **worker/model** (generate or review a bounded result).
+
+**Original constraint.** Codex quotas and limited local compute made it impractical to depend on one agent for every task. The project explored whether a coordinating AI could call Nemotron or another available model through an actual API/worker bridge and then review its output.
+
+**Successful learning.** The distinction between *multi-model access* and *AI-to-AI delegation* became explicit. A useful worker task needs context, allowed files, expected output, time limits, model/provider selection, error reporting and acceptance tests. GitHub can preserve the result so the next coordinator does not have to trust a chat summary.
+
+**What repository evidence shows.** A dedicated N-Worker repository exists. At the checkpoint inspected for this article, its default-branch README was minimal, so it did **not** substantiate a production-ready task queue, full autonomous execution or a measured success rate. Earlier discussions and integration plans should therefore be treated as experiment history rather than independently verified worker capabilities.
+
+**Failure modes.** Model responses may be plausible but wrong; provider access may fail; a local model may be too slow while a game is consuming GPU resources; worker output may lack tests; and an AI asking another AI is not the same as the second AI having permission to write files.
+
+**Conclusion.** N-Worker is an important *architectural experiment* but requires a public reproducible demonstration of delegation, review, test and commit before claiming that its complete workflow is proven.
+
+### D. NEXUS: the attempt to turn scattered integrations into one application
+
+**Purpose.** NEXUS is the proposed standalone Windows AI development environment, designed to unify model routing, workspace tools, persistent task state, code changes and a practical user interface.
+
+**Problem.** A growing collection of MCP tools, chats, terminal scripts and separate windows can become difficult to operate, especially for a non-programmer. The desired experience includes a file explorer, chat, previews, controlled computer interaction, code review and eventually contextual prompting.
+
+**Design experiments and corrections.** An early Godot-based UI direction was explored. The later recorded architectural decision **rejected Godot as the Windows application shell** and prioritized an independent agent core with a conventional desktop UI framework under evaluation. Godot remains a *target application* for game development. This reversal is an important result: the team changed course rather than defending an unsuitable early choice.
+
+**Other ideas under investigation.** Modular provider/tool interfaces; reuse of Orbit as an optional adapter; bounded autonomous tasks; persistent checkpoints; approval-gated file changes; and experimental self-improvement through measured comparisons and rollback. The goal is to avoid duplicating features that already work elsewhere.
+
+**What works today?** The repository contains planning and early prototype artifacts, but its README explicitly labels NEXUS **early prototype / architecture in progress** and says it is not yet a drop-in replacement. There is no verified stable standalone Windows application in the evidence reviewed for this publication.
+
+**Lesson.** Modular boundaries and staged migration matter more than a large list of promised features. A new interface should not be described as replacing Orbit until each critical capability has a test and a demonstrated equivalent.
+
+### E. The Godot RPG: using a real game as an integration test
+
+**Purpose.** The cyberpunk RPG/immersive-sim game became a demanding test of AI-assisted development because it involves **source code, scenes, imported assets, controls, physics, animation, UI, rendering and human perception**. It is a stronger test than generating a simple standalone script.
+
+**Reported positive playtest results.** A development issue dated 17 November records the human tester's observations: top-down movement and camera worked; occlusion was present; movement and parkour operated; gun/katana combat worked in a basic form; targeting feedback and target lock existed; and Q/E skill chains functioned. These are **human playtest observations**, not claims independently reproduced by this article's author.
+
+**Problems actually observed.** Animation blending was abrupt; some climbing animations faced the wrong direction; hit/death reactions were missing; hacking was difficult to discover; contextual RMB behavior needed a clear distinction between quiet and combat modes; and the UI needed a more coherent diegetic design. These are not abstract roadmap ideas—they are concrete problems emerging from play.
+
+**Migration failure and recovery lesson.** Moving the game from a historical repository to its new canonical repository revealed missing or unverified assets, plugins, scene references and imported resources. An earlier migration attempt was recorded as incomplete. A repository containing scripts is **not equivalent to a complete, runnable Godot project**. File manifests, asset hashes, scene dependencies and Godot import/runtime checks are necessary before declaring a successful migration.
+
+**Experiment: GPT running and playing a game through GitHub.** The development conversation reports progress toward letting GPT participate in running the game, inspect captured frames and provide input through a Git-mediated workflow. This is a potentially significant milestone because it closes part of the gap between *writing game code* and *observing what the game actually does*. However, the source material inspected for this public edition did **not** provide a complete reproducible sequence of runner version, executable/game commit, screenshots, input events and resulting state. We therefore report it as a **promising, user-reported experimental result**, not independently verified autonomous visual playtesting.
+
+**Practical lessons from the visual loop.** A screenshot can be misleading when a pole or another object blocks the character; camera framing and zoom matter; low frame rates can make input timing unreliable; and lowering render resolution may help the test runner. Visual testing should deliberately move the character, inspect weapon/katana and sheath orientation, and compare expected animation with actual frames. Capturing screenshots during slow frames is a useful proposed tactic, but must be logged to count as a measured improvement.
+
+**Godot-specific engineering lesson.** AI-generated scripts can recreate functionality that the engine already supplies through nodes and built-in systems. Future audits should ask whether custom GDScript is necessary or whether a native node, animation tree, input map, resource or scene mechanism would be simpler and safer.
+
+**Conclusion.** The game provides compelling evidence of *AI-assisted iterative game development and human playtesting*. It does not yet prove fully autonomous, reliable GPT gameplay or complete migration of the current build.
+
+### F. The self-updating local LLM idea: what 'learning' actually means
+
+An earlier idea was to build a local AI assistant that could become more useful over time by inspecting its failures and changing its supporting system. Several mechanisms must be distinguished:
+
+| Mechanism | What changes? | What it proves |
+| --- | --- | --- |
+| Persistent notes / retrieval | External memory, documents and context | The assistant can retrieve prior information |
+| Prompt and tool revisions | Instructions, routing or executable wrapper | The surrounding software can be improved |
+| Automated code proposal and review | Source code, subject to tests and approval | A model can suggest changes to its own application |
+| Fine-tuning or retraining | Model parameters / weights | Requires a separate, measured training process |
+
+No evidence inspected for this article establishes that a local LLM successfully **retrained its own weights**. A safer near-term experiment is *self-improvement of the surrounding software*: propose a bounded change, run reproducible evaluations, compare against baseline, require approval, then roll back on regression.
+
+### G. Cross-project lessons and a more rigorous proof plan
+
+**What the experiments already support:**
+- GitHub can preserve project decisions and handoffs across separate AI conversations.
+- Real repositories and code artifacts can be produced and revised.
+- Local model/tool integration can support bounded, reported tests.
+- A playable game can expose defects that source inspection alone misses.
+- Failed CI runs and incomplete migrations produce valuable engineering evidence.
+
+**What they do not yet establish:**
+- That every scheduled task completes meaningful development work.
+- That Orbit and N-Worker together deliver a dependable autonomous coding pipeline.
+- That NEXUS is a working replacement for the existing tool stack.
+- That a local model is continuously and safely self-retraining.
+- That GPT's game-playing loop works reproducibly across many runs.
+- That any system has a statistically measured reliability percentage.
+
+**Suggested end-to-end benchmark.** Define ten small tasks of increasing difficulty: documentation update, isolated code repair, unit test fix, sandbox file write, provider failover, Godot headless import, game launch, screenshot capture, input-and-response playtest, and rollback after a deliberately failing change. For each task, record *attempt count, success criteria, observed pass/fail, elapsed time, environment, exact commit, model and logs*. Only then publish operational success rates such as `successful verified runs / total comparable runs`.
+
+**Bottom line.** The most valuable result so far is not a claim that AI has replaced engineering. It is a documented progression from ad-hoc chats and file transfers to a multi-project, evidence-conscious development workflow—with a promising Night Runner, an increasingly capable Orbit, experimental delegation through N-Worker, an early NEXUS architecture, and a Godot RPG that forces AI-generated code to confront real runtime behavior.
+
