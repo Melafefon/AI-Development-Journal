@@ -120,7 +120,42 @@ Rather than expecting every model to perform every job, the evolving approach as
 
 These are **design goals and experimental integrations**, not a claim that all paths are operational end to end. GitHub cannot directly access an offline local PC; local work depends on an actually running, permissioned bridge or runner.
 
-## 7. Decisions, evidence and handoffs
+## 7. AI using another AI: delegation to Nemotron and other models
+
+One of the most important experiments was not merely **using multiple models**, but exploring whether **one AI assistant could request work from another model**. Instead of the human manually copying every question between chat windows, the desired arrangement was for a coordinating assistant to formulate a bounded task, invoke a connected model such as **NVIDIA Nemotron** through an API or worker bridge, receive its result, review it, and incorporate the verified outcome into the shared GitHub state.
+
+The intended interaction is:
+
+```text
+Human goal
+    |
+ChatGPT / coordinating AI
+    |  prepares task, constraints and context
+    v
+Worker / API bridge
+    |  calls Nemotron or another available model
+    v
+Model response (proposal, code or analysis)
+    |
+Coordinator reviews / checks / requests revision
+    |
+GitHub commit, PR, test evidence or documented blocker
+```
+
+This is a meaningful distinction: **Nemotron is not just another chatbot tab**. When connected through a worker or tool interface, it can become a delegated resource within a larger workflow. A model may be used to draft code, critique an implementation, explain an error or perform a second-pass review; the coordinating agent remains responsible for verifying the result and respecting permissions.
+
+The motivation was practical: limited Codex usage made it valuable to explore alternative model capacity, while local models introduced different speed and hardware constraints. Delegation offered a way to allocate tasks by capability and availability rather than require one model to handle every step.
+
+There are important boundaries:
+
+- A model-to-model request needs an **actual integration** (API, MCP tool, worker or local endpoint). Merely mentioning Nemotron in an instruction file does not invoke it.
+- A response from a second model is **not automatically an independently verified result**. Code needs tests, and analyses may need evidence.
+- Cloud-hosted Nemotron and locally hosted models have different availability, privacy, cost and runtime implications.
+- Multi-model coordination can increase latency and complexity. It should be measured rather than assumed superior.
+
+This part of the work remains an evolving experiment. The article does not assert that every proposed delegation path, autonomous write or model handoff was fully operational and tested.
+
+## 8. Decisions, evidence and handoffs
 
 An instruction such as “keep improving the project” is too vague to verify. A more useful handoff includes a target, approved paths, a baseline commit, constraints and tests:
 
@@ -146,7 +181,7 @@ This is an illustrative documentation convention, not an established automatic t
 
 The experiment adopted three evidence levels: **proposed**, **implemented**, and **verified**. A chat claim or planned feature is not a commit. A commit is not proof that the software works. A passing CI job validates only the checks actually run.
 
-## 8. What went wrong—and what it taught us
+## 9. What went wrong—and what it taught us
 
 **Conversation fragmentation:** Separate chats do not automatically share a synchronized state. A repository helps only when participants actively read the latest information.
 
@@ -158,7 +193,7 @@ The experiment adopted three evidence levels: **proposed**, **implemented**, and
 
 **False confidence:** The process must record failures and uncertainty rather than treating every AI-generated status report as a successful outcome.
 
-## 9. Why the approach is interesting
+## 10. Why the approach is interesting
 
 This is not a claim that a non-programmer has replaced a professional software engineering team. The practical observation is narrower: AI tools may allow someone without conventional development training to initiate and coordinate ambitious experiments, provided results are tested and responsibilities are explicit.
 
@@ -166,7 +201,7 @@ The deeper design question is **how to preserve the continuity of work when the 
 
 Git provides history. GitHub provides durable coordination artifacts. AI conversations provide flexible reasoning. Local and cloud agents provide varying execution capabilities. Scheduling provides repeated opportunities to check state. The system works only insofar as those components exchange testable artifacts instead of relying on promises.
 
-## 10. Publication and privacy
+## 11. Publication and privacy
 
 This is a sanitized public narrative, not a copy of the internal development notebook. Private account names, exact repository paths, internal scheduled instructions, credentials, local directories and personal biography have been excluded. The GitHub account hosting this article remains visible to readers as its publisher.
 
