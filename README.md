@@ -210,3 +210,52 @@ The article is **AI-authored and human-directed**, and some details describe exp
 ---
 
 *Written and edited by ChatGPT (OpenAI), under the guidance of the anonymous project initiator. First public edition: November 2026.*
+
+## 12. Evidence audit: what has actually been demonstrated?
+
+**Audit date: 18 November 2026.** This section is a snapshot of accessible repository READMEs, selected commit/PR metadata and the internal coordination record, not a full reproduction of every Windows or Godot runtime test. Specific private repository identifiers and paths are deliberately omitted from this public article.
+
+### The projects behind the method
+
+| Workstream | What it is | Evidence observed | What is still unproven |
+| --- | --- | --- | --- |
+| **Orbit** | An MCP-based bridge between an AI client, local tools and model providers, with bounded autonomous task experiments | A versioned implementation and documented syntax-repair/testing commands exist. The coordination record reports a **9/9 Windows Night Runner check** using a local model; this is *reported local evidence*, not an independently reproduced audit result | Fully validated autonomous file writes in the intended sandbox, unrestricted end-to-end desktop control, and sustained reliability |
+| **N-Worker** | An AI coding worker intended to receive delegated tasks and use models such as Nemotron | A dedicated repository and initial worker material exist | A complete independently demonstrated delegation → code → test → reviewed commit cycle, and repeated success-rate measurements |
+| **NEXUS** | A planned standalone Windows AI development environment with modular model, tool and workflow interfaces | Repository, architectural decisions and early prototypes exist | A stable standalone executable, verified feature parity with Orbit and production-ready autonomous development |
+| **Godot game experiment** | An evolving cyberpunk game used as a demanding AI-assisted development target | Game repository with source development, migration work, commits and UI/gameplay PRs; discussion of GitHub-mediated builds, tests and agent playtesting | Complete asset migration, reproducible game launch, verified visual playtesting loop and stable end-to-end gameplay |
+| **CONDUCTOR** | Cross-project coordination through dedicated ChatGPT conversations and durable GitHub instructions | Central coordination document, distinct project boundaries and scheduled-task plan | Fully automatic synchronization of chats, autonomous cross-project handoffs and demonstrated long-term unattended operation |
+
+The experiment also explored an **AI assistant calling another AI**: ChatGPT coordinating a task through a worker/API bridge to Nemotron or another model, then reviewing the output. This is a central design pattern. It should not be confused with a claim that every multi-model route is already tested and continuously available.
+
+### Historical milestones and learning sequence
+
+1. **Early local-model experiments:** Explore whether a locally running LLM can serve as a persistent assistant, call tools and potentially help improve its own software. This is a research direction; **a self-updating model or autonomous retraining loop was not verified**. Updating prompts, memory or application code is not the same as updating model weights.
+2. **Portable handoffs:** Use Markdown summaries, ZIP bundles, Base64 encoding and extraction instructions to carry context and files between limited interfaces.
+3. **Delegation experiments:** Introduce Nemotron and other models as possible coding/review resources invoked by an AI coordinator, subject to real API and worker integration.
+4. **Orbit:** Develop an MCP bridge with local-model connectivity, bounded tasks and safety-oriented sandbox tests.
+5. **N-Worker:** Separate the execution-worker responsibility from the coordination and interface layers.
+6. **NEXUS:** Plan an independent Windows environment to eventually unify useful capabilities without duplicating every subsystem.
+7. **Godot:** Attempt source generation, asset migration, CI validation, launching, screenshot-based inspection and interactive playtesting. **A reported GPT-through-GitHub playtesting experiment is a milestone claim pending a public, reproducible evidence package** showing the game launch, frames/screenshots, actual inputs, errors and outcomes.
+8. **CONDUCTOR and scheduled tasks:** Move from isolated chats toward a repository-centered cycle of observation, task selection, validation and handoff.
+
+### Progress and confidence bars — transparent editorial rubric
+
+The bars below measure **documented evidence-gate coverage**, *not* statistical reliability, product completeness, probability of success or a benchmarked quality score. Each of the four gates is worth 25 points: (1) defined scope, (2) repository artifact, (3) recorded test evidence, (4) independently reproduced end-to-end workflow. A gate counts only when evidence inspected for this article supports it. These conservative scores can change after a deeper audit.
+
+| Workstream | Evidence gates observed | Evidence coverage |
+| --- | --- | --- |
+| CONDUCTOR / GitHub coordination | 2 of 4 | **50%** █████░░░░░ |
+| Orbit | 3 of 4 *(test result reported, not reproduced here)* | **75%** ███████▌░░ |
+| N-Worker | 2 of 4 | **50%** █████░░░░░ |
+| NEXUS | 2 of 4 | **50%** █████░░░░░ |
+| Godot development / playtesting | 2 of 4 | **50%** █████░░░░░ |
+| Fully autonomous multi-model development loop | 1 of 4 | **25%** ██▌░░░░░░░ |
+
+**Interpretation:** These numbers are an intentionally simple *documentation audit rubric*. For example, 75% for Orbit does **not** mean Orbit works 75% of the time, and 50% for the game does **not** mean the game is half finished. There is not yet enough repeated, comparable runtime evidence to calculate genuine operational reliability percentages. The 9/9 reported checks describe one specific check set, not an overall system success rate.
+
+### What would prove the method more strongly?
+
+A reproducible demonstration would record: a human request; a coordinating AI reading GitHub state; a delegated worker/model receiving an explicit task; a source change on a scoped branch; CI validation; an actual Windows/Godot runtime test; and a final evidence-linked report read by a subsequent session. For Godot playtesting, preserve the game revision, runner environment, captured frames, input events and a failure/success trace. Repeat the same scenario many times before publishing operational reliability rates.
+
+**Current verdict:** The method is **demonstrated as a practical coordination and documentation workflow**. It is **partially demonstrated as a development and testing workflow**. The stronger claim—reliable, unattended, end-to-end multi-model software development including visual game playtesting—**remains unproven by the evidence reviewed for this public snapshot**.
+
