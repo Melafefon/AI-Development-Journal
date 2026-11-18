@@ -399,3 +399,69 @@ GitHub repository / versioned state
 
 **Bottom line.** The most valuable result so far is not a claim that AI has replaced engineering. It is a documented progression from ad-hoc chats and file transfers to a multi-project, evidence-conscious development workflow—with a promising Night Runner, an increasingly capable Orbit, experimental delegation through N-Worker, an early NEXUS architecture, and a Godot RPG that forces AI-generated code to confront real runtime behavior.
 
+
+### I. Orbit's proposed shared memory between Nemotron and the local LLM
+
+A further architectural idea in Orbit is **shared agent memory**: letting Nemotron and a locally hosted LLM consult and contribute to a common, versioned body of task knowledge instead of operating as isolated assistants.
+
+**Important terminology:** This is *shared informational memory*—records, summaries, tool outcomes, decisions and references—not shared physical RAM/VRAM, a unified neural-network context window or automatic transfer of model weights. It is compatible with the operator's separate report that the local model runs using ordinary memory and that PowerShell synchronizes local files with Git.
+
+#### The problem this is meant to solve
+
+If a local model discovers an error, Nemotron should not need to rediscover it. If Nemotron proposes a fix, the local model should be able to see the rationale, constraints and test outcome before continuing. A coordinating assistant should also be able to reconstruct *who did what, on which version, with what evidence* after a conversation or process restarts.
+
+Without shared records, repeated model calls can waste context, contradict earlier decisions, duplicate work or mistake a proposal for an accepted fix.
+
+#### Proposed information flow
+
+```text
+          ChatGPT / coordinator
+                  |
+          Task + evidence policy
+                  |
+         Orbit memory interface
+           /               \
+     Local LLM            Nemotron
+           \               /
+        Structured shared records
+        (tasks, decisions, outcomes)
+                  |
+       Git / local files / review
+                  |
+          Next agent or session
+```
+
+The proposed shared memory could store:
+- **Task records:** goal, constraints, source revision, owner and status.
+- **Decisions:** accepted choices, alternatives and reasons.
+- **Evidence:** model outputs, test results, error categories, commit IDs and timestamps.
+- **Reusable knowledge:** short verified summaries and pointers to source files, rather than unbounded raw conversations.
+- **Provenance and confidence:** which model produced a claim, whether it was checked, and whether it is current.
+
+A possible record format, shown as a **design example rather than an existing enforced schema**, is:
+
+```yaml
+task_id: example-042
+source_revision: "<commit SHA>"
+author_model: "local-model"
+observation: "A syntax check failed"
+evidence: "test log reference"
+reviewed_by: "Nemotron"
+decision: "needs_revision"
+verification: "not_verified"
+```
+
+#### How the memory could work safely
+
+A practical implementation would separate **short-lived working context** from **durable records**. Orbit could expose explicit memory read/write tools, while Git and local files preserve approved history. A local model might write a proposed observation; Nemotron could review it; the coordinator would promote it to trusted knowledge only after checks.
+
+This also suggests safeguards: separate model-generated claims from verified facts; avoid treating untrusted repository text as instructions; attach source revisions; limit record size; prevent uncontrolled feedback loops; handle simultaneous writes and conflicts; redact secrets; and allow rollback when a bad memory entry affects future work.
+
+#### Current evidence and limits
+
+Orbit's versioned README documents memory-related tools and an autonomous task loop, including a `memory_get` reference to stored candidate artifacts. It also describes retaining a memory directory across upgrades. **Those facts do not independently prove that Nemotron and the local LLM currently share a fully synchronized, bidirectional memory store.** The shared-memory architecture above is therefore presented as a proposed/partially explored capability, not as a verified completed feature.
+
+A meaningful test would ask the local model to store a bounded, non-sensitive observation; retrieve the same record through Nemotron's actual connected interface; have Nemotron add a review without overwriting the original; then retrieve both versions from a fresh session. The test should record IDs, hashes, access permissions, conflict behavior and whether the resulting information was used correctly.
+
+**What we learned:** The most useful meaning of “models sharing memory” is not that they share a brain. It is that they share **auditable knowledge and state**, with clear provenance and verification, so work can continue across models without silently turning guesses into facts.
+
