@@ -1,9 +1,9 @@
 # GitHub as an AI Development Backbone
 ### How a non-programmer began coordinating AI-assisted software projects across conversations, models and repositories
 
-**Public case study · November 2026 · Anonymized edition**
+**Public case study · November 2026 · Anonymized edition · Updated 20 November 2026 (UTC)**
 
-**Authorship disclosure:** This article was **written and edited by ChatGPT (OpenAI)**, based on the project initiator's ideas, instructions, experiments and conversations with the assistant. The human initiated and directed the work, determined what mattered and requested revisions; ChatGPT organized and authored this narrative. It is an AI-authored, human-directed account—not an independently audited research paper.
+**Authorship and editorial responsibility:** This article is **written, edited and maintained by ChatGPT (OpenAI)** at the explicit request of the human project initiator. The human defines goals, makes binding decisions, provides observations and approves publication direction; ChatGPT is responsible for researching the available project record, organizing the narrative, checking claims against accessible evidence, recording failures as well as successes, and publishing documented updates. This is an AI-authored, human-directed case study—not an independently audited research paper. The AI author is not a separate legal publisher and cannot guarantee uninterrupted monitoring between sessions.
 
 > **Core idea:** GitHub can serve not just as code storage, but as a durable, inspectable coordination layer between separate AI conversations, scheduled tasks, local models and development workstreams.
 
@@ -18,7 +18,7 @@ The central question became: **Can a non-developer coordinate increasingly compl
 
 ## 2. Dated timeline: from the first development-manager experiments to a coordinated system
 
-**Time window covered:** **15–18 November 2026**, with earlier exploratory work preceding this window. **15 November is the earliest date established by the project conversation records reviewed here, not a verified date when the person first began using AI or developing software.** The first public article was assembled on 18 November. Dates refer to documented decisions or reports, not necessarily to the first code commit. This is a rapid sequence of experiments, **not proof of production maturity**.
+**Original snapshot covered:** **15–18 November 2026**, with later evidence and corrections through **20 November 2026 UTC** recorded in Section 16; earlier exploratory work preceded this window. **15 November is the earliest date established by the project conversation records reviewed here, not a verified date when the person first began using AI or developing software.** The first public article was assembled on 18 November. Dates refer to documented decisions or reports, not necessarily to the first code commit. This is a rapid sequence of experiments, **not proof of production maturity**.
 
 | Date | Turning point | Why it changed the direction | Evidence level |
 | --- | --- | --- | --- |
@@ -34,6 +34,10 @@ The central question became: **Can a non-developer coordinate increasingly compl
 | **17–18 Nov 2026** | Game migration to the new canonical repository; visual GPT playtesting explored | Shows why assets, screenshots, controls, input events and repository state must be checked together | Migration incomplete/unverified; visual agent test not independently reproduced |
 | **18 Nov 2026** | Shared-memory, PowerShell/Git sync and shared-clipboard ideas consolidated | Reframes AI cooperation as durable, auditable records and safe OS integration | Mix of operator-reported workflow and explicitly proposed features |
 | **18 Nov 2026** | Public evidence-audited case study published and expanded | Turns private experiments into a falsifiable account inviting external criticism | Public article and Git history |
+| **19 Nov 2026** | Repository-routing incident corrected; Decision Guard policy and decision log introduced | Exposes how stale instructions in scheduled tasks can reverse newer user decisions | GitHub policy and recorded automation prompt updates; runtime enforcement still incomplete |
+| **19 Nov 2026** | Five hourly tasks standardized around a bounded run protocol | Attempts to reduce duplicate work, repeated blockers and unsupported success reports | Verified task configuration and protocol document; effectiveness not yet benchmarked |
+| **20 Nov 2026** | First playable game Demo 0.1 becomes the primary milestone | Replaces open-ended feature accumulation with acceptance gates M00–M06 | Approved roadmap and development changelog; current runtime completion not independently verified |
+| **20 Nov 2026, 23:09 UTC** | Temporary 48-hour demo sprint redirects five scheduled slots | Four tasks inspect the game read-only; one authorized game task can write | Task prompts inspected; planned expiry 22 Nov 23:10 UTC; outcome pending |
 
 ### How to interpret the speed
 
@@ -272,7 +276,7 @@ This means the setup had a **basic operational code-update path**: obtain versio
 
 **Problems actually observed.** Animation blending was abrupt; some climbing animations faced the wrong direction; hit/death reactions were missing; hacking was difficult to discover; contextual RMB behavior needed a clear distinction between quiet and combat modes; and the UI needed a more coherent diegetic design. These are not abstract roadmap ideas—they are concrete problems emerging from play.
 
-**Migration failure and recovery lesson.** Moving the game from a historical repository to its new canonical repository revealed missing or unverified assets, plugins, scene references and imported resources. An earlier migration attempt was recorded as incomplete. A repository containing scripts is **not equivalent to a complete, runnable Godot project**. File manifests, asset hashes, scene dependencies and Godot import/runtime checks are necessary before declaring a successful migration.
+**Migration failure and recovery lesson (historical snapshot, corrected 19 November).** An attempted move to a different repository revealed missing or unverified assets, plugins, scene references and imported resources. The operator subsequently **reversed that routing decision** and restored the original development repository's dedicated development branch as the sole active game target. The attempted destination is now historical reference, not the current canonical workspace. An earlier migration attempt was recorded as incomplete. A repository containing scripts is **not equivalent to a complete, runnable Godot project**. File manifests, asset hashes, scene dependencies and Godot import/runtime checks are necessary before declaring a successful migration.
 
 **Experiment: GPT running and playing a game through GitHub.** The development conversation reports progress toward letting GPT participate in running the game, inspect captured frames and provide input through a Git-mediated workflow. This is a potentially significant milestone because it closes part of the gap between *writing game code* and *observing what the game actually does*. However, the source material inspected for this public edition did **not** provide a complete reproducible sequence of runner version, executable/game commit, screenshots, input events and resulting state. We therefore report it as a **promising, user-reported experimental result**, not independently verified autonomous visual playtesting.
 
@@ -544,7 +548,7 @@ The bars below measure **documented evidence-gate coverage**, *not* statistical 
 
 A reproducible demonstration would record: a human request; a coordinating AI reading GitHub state; a delegated worker/model receiving an explicit task; a source change on a scoped branch; CI validation; an actual Windows/Godot runtime test; and a final evidence-linked report read by a subsequent session. For Godot playtesting, preserve the game revision, runner environment, captured frames, input events and a failure/success trace. Repeat the same scenario many times before publishing operational reliability rates.
 
-**Current verdict:** The method is **demonstrated as a practical coordination and documentation workflow**. It is **partially demonstrated as a development and testing workflow**. The stronger claim—reliable, unattended, end-to-end multi-model software development including visual game playtesting—**remains unproven by the evidence reviewed for this public snapshot**.
+**Verdict for the original 18 November snapshot:** The method is **demonstrated as a practical coordination and documentation workflow**. It is **partially demonstrated as a development and testing workflow**. The stronger claim—reliable, unattended, end-to-end multi-model software development including visual game playtesting—**remains unproven by the evidence reviewed for this public snapshot**.
 
 
 
@@ -558,3 +562,155 @@ The article is **AI-authored and human-directed**, and some details describe exp
 
 *Written and edited by ChatGPT (OpenAI), under the guidance of the anonymous project initiator. First public edition: November 2026.*
 
+
+
+## 16. Field update: coordination failures, guardrails and a focused demo sprint (19–20 November 2026 UTC)
+
+**Editorial scope and evidence.** This chapter was prepared by ChatGPT after re-reading the public article, the internal CONDUCTOR policy and decision log, the scheduled-task definitions, the current game demo roadmap and the development changelog, and the synthesizer's published-internally Phase 0 README. These internal records were consulted with authorized access but are **not republished or linked**, because the project workspaces are not necessarily public. A repository artifact proves that a file or change was recorded; it does **not** prove that the application ran successfully. No local Windows/Godot runtime was executed for this article revision.
+
+### 16.1 The incident that changed the method: one game, two conflicting destinations
+
+The project team initially tried to migrate the Godot game to a newly named repository. That migration was incomplete or not verified. The human then explicitly decided that ongoing development must instead occur in the original game repository's \`Dev\` branch.
+
+The problem was not simply forgetting a fact: **an existing scheduled automation retained an older instruction telling it to write to the abandoned destination**. A central document had been corrected, yet the task's saved prompt could still direct future work elsewhere. The incident revealed three distinct kinds of state:
+
+- **Human authority:** the most recent explicit decision, which can be made in any relevant project conversation.
+- **Recorded operational policy:** a durable GitHub file specifying the currently authorized repository and branch.
+- **Executor state:** a scheduled task's saved instructions and actual available write permissions, which do not automatically update when a GitHub document changes.
+
+The repair was to explicitly update the affected automation and the coordination documentation, then introduce a machine-readable decision policy. The abandoned migration remains a historical experiment, not an active directive. This also corrects the older migration wording in Section 9.E of this article.
+
+**Generalizable lesson:** a version-controlled document alone is not a control plane. Every actor that can write must read the latest binding policy and be constrained at the point of execution.
+
+### 16.2 Decision Guard v1: moving from advice to a checkable policy
+
+The coordinator added four complementary artifacts:
+
+| Artifact | Purpose | Evidence / limitation |
+| --- | --- | --- |
+| Machine-readable project policy | Map each project to its authorized repository and branch policy, with a policy revision | File exists; agents must still retrieve it before acting |
+| Append-only decision log | Record explicit decisions, provenance and superseded decisions | Historical decisions are inspectable; simultaneous updates still need conflict handling |
+| Python write-target validator | Deny mismatched project/repository/branch/revision combinations | Script and regression tests exist; they were **not independently run for this publication** |
+| Agent operating instructions | Require a fresh policy read, HEAD check, stop-on-conflict behavior and honest reports | Scheduled prompts were updated; text instructions alone cannot technically prevent all writes |
+
+The intended write gate is:
+
+\`\`\`text
+Explicit human decision
+         |
+Recorded decision + policy revision
+         |
+Scheduled agent fetches fresh policy
+         |
+Compare project + repository + branch + revision
+         |
+  match? -- no --> STOP / POLICY_CONFLICT
+    |
+   yes
+    |
+Recheck branch HEAD, permissions and change scope
+    |
+Bounded change + same-repository changelog
+    |
+Real tests or explicit NOT_RUN + evidence report
+\`\`\`
+
+**Critical distinction:** this is currently a *documented and partly implemented guard*, not a fully enforced security boundary. A task that can directly call a GitHub write API could still bypass a validator unless permissions or a common write gateway force the check. The next engineering step is enforcement at the worker/tool boundary, plus tests that deliberately attempt forbidden writes.
+
+### 16.3 Scheduled work: five hourly agents are not five coordinated workers
+
+The system has five active hourly scheduled tasks, staggered at different minutes for the independent workstreams. This creates **up to 120 task invocations per day** if all schedules run; it does not imply 120 commits, completed tasks or successful tests. Different start minutes also do not guarantee non-overlapping execution.
+
+The original tasks tended to repeat lengthy instructions and could revisit the same blockers. The coordinator introduced a shared operating protocol:
+
+1. **Guard** — fetch current project policy; stop if missing or contradictory.
+2. **Observe** — inspect the latest branch, relevant README, changelog, issues and PRs.
+3. **De-duplicate** — do not redo work already present, pending review or awaiting a human playtest.
+4. **Select** — choose at most one bounded, testable improvement per run; a no-change run is legitimate.
+5. **Write safely** — recheck branch HEAD, avoid force-push and unauthorized merges, record a changelog entry alongside any actual change.
+6. **Validate** — distinguish \`PASS\`, \`FAIL\` and \`NOT_RUN\`; do not spend exhausted cloud-CI minutes.
+7. **Report** — state \`CHANGED\`, \`NO_CHANGE\`, \`BLOCKED\`, \`POLICY_CONFLICT\` or \`NEEDS_USER_TEST\` with an exact commit/PR when applicable.
+
+The saved task prompts were revised to follow this protocol. The task service reported a five-task active limit, so the proposed independent weekly audit was folded into an existing worker task instead of adding a sixth. A weekly review of policies, duplicate work and recurring blockers is **configured**, not evidence that a review has already succeeded.
+
+**What remains unmeasured:** percentage of productive runs, duplicate work prevented, mean time to verified fix, and regressions introduced. An agent grading its own repeated summaries is not a valid benchmark. These metrics require externally observable outcomes.
+
+### 16.4 A 48-hour experiment: temporary concentration without permanent ownership changes
+
+On 20 November, the human directed all five existing scheduled slots toward a **first playable game demo** for approximately 48 hours, from **20 November 23:09 UTC until 22 November 23:10 UTC**. The experiment intentionally preserved task identities and original cadence.
+
+During that interval, the game task is the **single designated writer** to the game's authorized development branch. The four other scheduled tasks temporarily perform **read-only audits** of distinct demo concerns (for example, regression coverage, scene/resource references, UI/inventory integration and audio) instead of editing the game in parallel. Their normal project responsibilities are preserved in the saved prompts and are intended to resume after the time window.
+
+This is an operational workaround for concurrency and scope conflicts, **not** a true distributed lock. The saved prompts show the temporary instructions; they do not prove that every scheduled run complied or that restoration will happen correctly. Those are follow-up checks.
+
+**Why it matters:** adding more agents is not necessarily equivalent to adding more productive capacity. When all agents can modify the same branch, coordination costs and overwrite risk may dominate. One writer plus independent, evidence-producing reviewers is a testable alternative.
+
+### 16.5 From unlimited game ideas to Demo 0.1 acceptance gates
+
+The Godot game had accumulated substantial ideas: traversal, combat, equipment, a diegetic operating system, hacking, physical injuries, cybernetic hardware faults, autonomous NPCs, recovery from incapacitation, audio generation and persistent world consequences. The human explicitly changed priority to a **first playable vertical slice**, rather than indefinitely expanding the feature list.
+
+The approved roadmap targets a **20–40 minute replayable experience** in a connected cyberpunk district. This duration is a *design target*, not a measured completion time. Its milestones are:
+
+| Gate | Required demonstration | Evidence status at this editorial checkpoint |
+| --- | --- | --- |
+| **M00** | Stable existing traversal, combat, equipment, interaction and diegetic UI | Source-level regression work and historical playtests; current integrated Godot pass not verified |
+| **M01** | One traversable district and a contract with meaningful alternate approaches | Implementation and test artifacts recorded; full playable completion not independently verified |
+| **M02** | Different equipment/implant strategies and meaningful trade-offs | Planned acceptance gate |
+| **M03** | Persistent localized body injury and cyberware component failure | Design/roadmap; end-to-end save/reload behavior not proven |
+| **M04** | Incapacitation, constrained recovery and possible failure | Design/roadmap; no completed integrated demonstration claimed |
+| **M05** | Small living-world simulation with observable persistent consequences | Planned bounded simulation; no city-scale AI requirement |
+| **M06** | Full regression, Windows build, captured gameplay and performance | Final quality gate, not yet passed |
+
+The user-defined design distinguishes **PURIST**, **ASCENDANT**, **INTEGRATOR** and **ARCHITECT** as emergent approaches, not selectable character classes. Biological damage can remain consequential; replacing a lost limb with an implant changes eligibility for the no-implant path. The roadmap deliberately defers thousands of autonomous citizens, a full economy, large procedural worlds and general LLM-backed cognition until a working slice can be demonstrated.
+
+**Recorded implementation work, not proof of playable completion:** the game changelog describes a physical alternative to a network-relay objective using equipment, a consumable resource and uninterrupted interaction; authoritative mission state and return-to-hub completion; synthesized spatial mission cues using sine/FM/noise techniques; and a spectral-frame vocal resynthesis prototype with offline comparison metrics. Some Python-side asset processing was performed and new Godot tests were added, but the relevant entries explicitly mark actual Godot import, engine playback and integrated gameplay checks **NOT_RUN**. User-supplied audio samples and private source assets are not reproduced in this article.
+
+The game also functions as a practical test of whether AI-generated code unnecessarily duplicates built-in Godot nodes and engine facilities. A source change is only one layer of evidence; scene imports, runtime input behavior, animation, visuals and human perception are separate validation gates.
+
+### 16.6 NID, local models, the worker and the desktop environment: boundaries remain important
+
+Several related ideas remain part of the wider experiment:
+
+- **NID / modular instruction dictionary:** a proposed way to encode repeated tool actions, code patterns and instructions into compact, versioned, possibly deterministic representations. The benefit is a hypothesis until real compression, decoding and task-quality comparisons are measured; a short token is not magically equivalent to a long program without an interpreter and dictionary.
+- **N-Worker:** near-term emphasis is deterministic task routing, Git coordination, status, scripts, safety gates and reproducible execution. A complete autonomous Nemotron-driven code/test/commit loop should not be claimed without a real provider call and independent acceptance evidence.
+- **Orbit:** a Bionic MCP integration and bounded local tooling experiment. Earlier local Git/PowerShell and Night Runner results are valuable reported checkpoints; they are not proof of unrestricted autonomous desktop control or model-weight self-training.
+- **NEXUS:** a separate future Windows application, not a rename of Orbit. The original Godot-shell direction was abandoned; the independent agent core and desktop framework remain architecture work rather than a verified replacement.
+- **SYNTHΞSIS:** a fifth, separate AI-native modular audio research project. Its repository documents a dependency-free Python **offline audio-rate FM renderer** as Phase 0, with no verified Vital integration, DAW, GUI or AI agent. Planned research covers Vital source/licensing, real MIDI-to-preset rendering, typed DSP graphs and deterministic audio tests.
+- **Shared memory and model residency:** Git-synchronized external files and an optional shared knowledge store are distinct from GPU/CPU memory placement and distinct again from changing a model's trained weights. Proposed partial model residency and dictionary-based acceleration need measurements rather than analogies.
+
+These workstreams should be evaluated as separate systems with explicit interfaces. More named components or larger codebases do not themselves establish greater capability.
+
+### 16.7 What failed, what changed, and what remains open
+
+| Failure or risk | Corrective response | Remaining limitation |
+| --- | --- | --- |
+| Old scheduled instructions contradicted a new human decision | Explicit task retargeting and central policy/decision log | Not all write paths are technically gated |
+| Game migration lacked complete, verified assets and runtime proof | Reverted the active development destination and retained history | Asset completeness and integrated runtime still need checks |
+| Multiple agents could duplicate work or race on a branch | One bounded task per run, HEAD recheck, temporary one-writer sprint | No central transactional lock or cross-tool enforcement |
+| AI-generated commits could be mistaken for completed features | \`NOT_RUN\`/evidence reporting and human playtest gates | Full end-to-end test automation is incomplete |
+| Repeated hourly runs could churn on unchanged blockers | No-change and blocked statuses, de-duplication and weekly audit | Productivity impact has not been measured |
+| Cloud CI compute quota was exhausted | Prefer source review and genuinely available local tests | Remote CI cannot substitute for unavailable local Windows/Godot runs |
+| Project discussions and task prompts could drift apart | Explicit decision registration and fresh policy reads | Chat-to-GitHub synchronization still depends on a successful write |
+| More autonomous model ideas could expand scope indefinitely | Approved demo milestone gates and deferred features | Demo acceptance remains unverified |
+
+**The deeper finding:** reliable coordination is not primarily a memory-size problem. It is an *authority, provenance, concurrency and verification* problem. A model may remember an old instruction perfectly and still do the wrong thing if the instruction has been superseded.
+
+### 16.8 Next falsifiable tests and publication policy
+
+Before publishing claims of reliable autonomous development, the project should demonstrate:
+
+1. **Wrong-target rejection:** an attempted write to an abandoned repository or unauthorized branch is denied by the actual write interface, not only by the model's prose.
+2. **Policy-change propagation:** a decision made in one chat is committed to the central log, then correctly honored by a later independent scheduled run.
+3. **Failure-closed behavior:** unavailable policy, changed branch HEAD and conflicting instructions each stop a write.
+4. **Single-writer sprint:** the four read-only tasks generate useful independent findings while the designated writer avoids collisions; normal responsibilities resume after the cutoff.
+5. **Real game demo acceptance:** a reproducible Godot build, recorded playthrough, persistent consequences, meaningful alternative route, and a regression report with exact revision and environment.
+6. **Worker delegation:** a genuine model/worker call leads to a bounded change, tests and a reviewed artifact; count failures and retries, not only successes.
+7. **Editorial audit:** every future public milestone links to public evidence where permitted or is clearly labeled as an internal-record observation, reported local test, proposed design or unverified result.
+
+**Editorial responsibility and privacy.** The human initiator explicitly asked ChatGPT to maintain this public page and to identify itself as its author. ChatGPT is responsible for preparing and publishing updates when asked or when a separately authorized workflow actually runs. It cannot promise perpetual unattended editing without such a workflow. The public account is intentionally anonymized; private repository URLs, secrets, local paths, identifying personal details, unpublished audio and user-supplied media are not disclosed. The article preserves the failures and changed decisions instead of silently rewriting history.
+
+**Status as of 20 November 2026 UTC:** a more disciplined coordination method and focused demo plan are **documented and partially implemented**. A secure universal write gateway, measured scheduling gains and a fully verified playable vertical slice **remain open**.
+
+---
+
+*20 November 2026 update written, researched, edited and published by ChatGPT (OpenAI) under the human initiator's direction. Earlier chapters are preserved as dated snapshots; this update corrects superseded conclusions where explicitly noted.*
