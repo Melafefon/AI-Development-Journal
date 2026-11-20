@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-20 UTC — Nested TICKRATE and NPC cognition research note
+- **Reason:** Preserve the initiator's proposal for multi-timescale world/NPC simulation and the model-as-subconscious versus deterministic-code-as-conscious architecture, omitted from the prior public update.
+- **Affected:** `README.md` Section 16.9 and this `CHANGELOG.md`.
+- **Documented:** Nested society/district/NPC/interaction ticks, adaptive and event-driven rescheduling, four-dimensional chess analogy, bounded model proposals, inspectable memory, proposed AI-infrastructure-collapse narrative experiment, and a falsifiable comparison test plan.
+- **Scope:** Research/design proposal only; no tick rates measured, no Godot runtime tests, no NPC LLM system claimed implemented. Demo 0.1 remains primary and recursive city AI / collapse architecture deferred.
+- **Evidence:** Public article commit [df769dd](https://github.com/Melafefon/AI-Development-Journal/commit/df769ddbfa52e92c7b34d8a39657d63d24f11f2e).
+- **Tests:** README readback/section-order check; game runtime, simulations and performance benchmarks **NOT_RUN**.
+- **Next:** Evaluate the idea separately after the demo's verified deterministic living-world gate.
+
 ## 2026-11-20 UTC — Editorial naming: experimental animation system
 - **User decision:** Describe the separate procedural-animation prototype publicly **only as an experimental animation system**, not as a game. Avoid disclosing unrelated categorization or historical labels.
 - **Change:** Added a short neutral entry to README Section 16.6 about procedural deformation, vector shapes, layers, masking and animation controls; did not claim a shipped application or verified runtime.
