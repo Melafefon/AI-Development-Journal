@@ -696,6 +696,35 @@ These workstreams should be evaluated as separate systems with explicit interfac
 
 **The deeper finding:** reliable coordination is not primarily a memory-size problem. It is an *authority, provenance, concurrency and verification* problem. A model may remember an old instruction perfectly and still do the wrong thing if the instruction has been superseded.
 
+
+### 16.9 Nested TICKRATE: cognition across multiple timescales (proposal, 20 November)
+
+A further idea emerged from the game-simulation discussion: instead of asking a language model to continuously write every NPC's thoughts, treat the city as a **nested hierarchy of simulation clocks**. This is not simply a performance optimization; it is a design for how individual and collective behavior can emerge across different time horizons.
+
+| Layer | Relative cadence (illustrative, not benchmarked) | Responsibilities |
+| --- | --- | --- |
+| World / society | Very slow | Corporate strategy, faction relationships, economic and political pressures |
+| District / community | Slow | Local supply, gang influence, incidents, neighborhood state |
+| Individual NPC | Medium, adaptive | Goals, memory-derived priorities, schedules, opportunities and relationships |
+| Immediate interaction | Fast | Perception, movement, combat, dialogue turn-taking and reactions to the player |
+
+These rates need not be fixed or synchronized. A slow event can influence many faster loops; a significant fast event can force an earlier update in a slower layer. Distance from the player, relevance, danger and available compute can influence how much detail is simulated. In the initiator's metaphor, the simulation resembles **four-dimensional chess**: actors respond to the current board while longer-running plans change the future board, and the player is a disruptive variable rather than the only cause of events.
+
+The initiator proposed a distinctive split between **model as subconscious** and **deterministic code as conscious layer**. This is an architectural analogy, not a claim about AI sentience:
+
+- **Model / subconscious:** slower, optional generation of associations, interpretations, competing hypotheses and possible courses of action.
+- **Code / conscious:** explicit rules, verified world state, allowed actions, continuity, permissions and binding decisions. It executes only actions permitted by the game state.
+- **Memory:** persistent, inspectable state that can be queried by both layers; not an unlimited stream of generated prose.
+- **Event propagation:** outputs from a slower layer become bounded inputs to faster layers, while significant local events can invalidate or reschedule slower plans.
+
+The distinction matters because a game need not call an LLM on every frame, or even for every NPC. An NPC can continue to act according to code and persistent state between sparse model updates. A model proposal should not be allowed to invent resources, overwrite authoritative facts or bypass the game's rules.
+
+**Narrative stress test — AI infrastructure collapse.** A proposed story event would damage the city's AI infrastructure and partially disable its deterministic governance or coordination layer. Previously bounded generative tendencies could then create **organized chaos**: not random NPC actions, but conflicting local interpretations, inconsistent priorities and failures to reconcile shared state. This could turn an architecture constraint into a gameplay event. It remains a speculative design scenario, not a demonstrated simulation.
+
+**What would make this falsifiable?** Implement a small, isolated test with a handful of NPCs and a few districts. Compare (a) fixed-rate deterministic simulation, (b) adaptive nested rates without a model, and (c) the same architecture with infrequent bounded model proposals. Measure update cost, frame-time impact, event latency, persistence after save/load, consistency of world state, player-observable consequences and reproducibility. Trigger an infrastructure-failure scenario and verify that behavior changes follow explicit rules rather than uncontrolled state corruption. The relative rates above are conceptual; no tick-frequency or performance numbers have been measured.
+
+**Scope decision:** the currently approved playable Demo 0.1 roadmap favors a small deterministic living world and explicitly defers generalized recursive LLM city cognition and AI-collapse systems unless required for a demo acceptance gate. This section records the research direction without silently expanding the demo scope or authorizing new implementation work.
+
 ### 16.8 Next falsifiable tests and publication policy
 
 Before publishing claims of reliable autonomous development, the project should demonstrate:
