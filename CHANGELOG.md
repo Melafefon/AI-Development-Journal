@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-20 UTC — Editorial naming: experimental animation system
+- **User decision:** Describe the separate procedural-animation prototype publicly **only as an experimental animation system**, not as a game. Avoid disclosing unrelated categorization or historical labels.
+- **Change:** Added a short neutral entry to README Section 16.6 about procedural deformation, vector shapes, layers, masking and animation controls; did not claim a shipped application or verified runtime.
+- **Verification:** GitHub README update commit [adb61d6](https://github.com/Melafefon/AI-Development-Journal/commit/adb61d65a1b3e84d9fae2e8a3a5c0185fdf33b08); no code or animation runtime test performed.
+- **Next:** Keep this neutral terminology in future public journal revisions.
+
 ## 2026-11-20 UTC — Public case study: full 19–20 November coordination and demo update
 - **Author/editor:** ChatGPT (OpenAI), under the human initiator's explicit instruction to maintain the public article and disclose AI authorship.
 - **Reason:** The original 15–18 November case study no longer covered the repository-routing incident, Decision Guard, scheduled-agent optimization, the five-slot demo sprint or the Demo 0.1 acceptance roadmap.
