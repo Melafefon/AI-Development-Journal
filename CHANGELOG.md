@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-21 UTC — Full sound, LLM and nested TICKRATE research review
+- **Request / editorial responsibility:** The initiator requested an up-to-date cross-project audit, especially of audio, LLM and TICKRATE, and publication in the AI-authored public journal.
+- **Sources actually inspected:** Public README; current game Dev changelog, README, `game_audio.gd`, FRS1 audio documentation and proposed cognition issue; SYNTHΞSIS default-branch README; central policy/decision log; available repository list; recent conversation proposals. Private source locations and unpublished audio not reproduced.
+- **New file:** `docs/2026-11-21_SOUND_LLM_TICKRATE_RESEARCH.md` — explicit evidence labels; procedural audio and FRS1; proposed standalone Godot/Vital-algorithm lab; TTS corpus and phonetic-alignment constraints; nested tick modulation/delta/fold/unfold; bounded local LLM + deterministic 3D/4D board; 18/19 Windows M00 result and post-fix gap; falsifiable research matrix.
+- **README:** New Section 17 linking the full report, concise evidence table, updated publication date and Nov 21 timeline entry. Maintains separation between implemented source, reported tests and speculative architecture; preserves current Demo 0.1 priority.
+- **Evidence:** Detailed report [bd61bb7](https://github.com/Melafefon/AI-Development-Journal/commit/bd61bb750b665f4bf19ad12017f0a10a2d5cb64c); README integration [be1a30c](https://github.com/Melafefon/AI-Development-Journal/commit/be1a30c06161c33bebcb11de524c687e2a072e3b).
+- **Tests:** GitHub accepted the documentation writes; readback verification pending. Godot/Windows, audio, LLM inference, scheduler benchmarks and CI **NOT_RUN** by this documentation update.
+- **Open:** Post-fix Godot M00 rerun, frame-bank in-engine playback, separate Godot lab creation, Vital license/source study, speech-data provenance and nested tick scheduler validation.
+- **Next:** Publish only independently evidenced advances, including the 48-hour demo sprint outcome when available.
+
 ## 2026-11-20 UTC — Nested TICKRATE and NPC cognition research note
 - **Reason:** Preserve the initiator's proposal for multi-timescale world/NPC simulation and the model-as-subconscious versus deterministic-code-as-conscious architecture, omitted from the prior public update.
 - **Affected:** `README.md` Section 16.9 and this `CHANGELOG.md`.
