@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-21 UTC — Methodological rewrite following outside-model critique
+- **Request:** The anonymous initiator asked ChatGPT, the journal author/editor, to rewrite the case study to reflect the new single-chat research-first operating model and respond critically to feedback attributed to Claude.
+- **Provenance:** The feedback was supplied in the initiating conversation. It is an outside-model reading of this AI-written article, **not** a replicated code audit or a personal assessment. The reviewer did not establish independent access to or rerun of all underlying tests.
+- **Rewritten sections:** New evidence-first executive assessment; substantive rewrite of Section 13 to address author/evaluator bias, domain analogies versus proof, and open research versus game delivery. Section 14 replaces 25%/50%/75% editorial progress bars with a non-numeric evidence register. New Section 19 summarizes the critique and corrections.
+- **New detailed methodology:** [External critique and method revision](docs/2026-11-21_EXTERNAL_CRITIQUE_AND_METHOD_REVISION.md), with claim-level reproducibility record, human Git/test literacy goal, independent technical review and three distinct progress axes.
+- **Preserved:** Dated historical experiment account, failed Windows CI check alongside reported 9/9 local Night Runner checks, reported game 18/19 failure, source-versus-runtime distinctions, current pause of four workstreams and active Demo 0.1 product laboratory.
+- **Verification:** GitHub documentation commits and subsequent readback; no Windows/Godot runtime tests or simulation/LLM benchmarks performed by this editorial revision.
+- **Limitation:** Evidence can be source-linked but not independently reproduced solely by an AI-authored journal. Avoid presenting the methodology as a proven improvement until tested.
+
 ## 2026-11-21 UTC — One-chat research-first workflow and cross-project pause
 - **Approved by user:** replace separate project-chat boundaries with one open-ended ChatGPT conversation; GitHub retains durable decisions, evidence and cross-project research links.
 - **Execution:** pause Orbit, N-Worker, NEXUS and SYNTHΞSIS development automations; retain the game task as sole enabled scheduled developer, with permanent policy-based prompt and Dev-only write scope. This supersedes the 48-hour demo task redirect and its automatic-resume behavior.
