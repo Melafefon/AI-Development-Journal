@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-21 UTC — One-chat research-first workflow and cross-project pause
+- **Approved by user:** replace separate project-chat boundaries with one open-ended ChatGPT conversation; GitHub retains durable decisions, evidence and cross-project research links.
+- **Execution:** pause Orbit, N-Worker, NEXUS and SYNTHΞSIS development automations; retain the game task as sole enabled scheduled developer, with permanent policy-based prompt and Dev-only write scope. This supersedes the 48-hour demo task redirect and its automatic-resume behavior.
+- **Public article:** updated title, current conclusion, historical qualification, dated timeline and Section 18; added [full research-first conclusions](docs/2026-11-21_SINGLE_CHAT_RESEARCH_FIRST_CONCLUSIONS.md).
+- **Operational source:** separate private CONDUCTOR policy revision 2 and decision log; public case study does not reproduce private implementation paths or identifying details.
+- **Methodological conclusion:** manage discovery by relationships and hypotheses, while keeping code authorization, tests and project ownership explicit. Cross-domain analogies are not measured performance proofs.
+- **Verification:** GitHub documentation writes succeeded; readback pending. No game/Windows runtime tests, LLM benchmarks or automatic chat synchronization tests executed by this change.
+
+
 ## 2026-11-21 UTC — Full sound, LLM and nested TICKRATE research review
 - **Request / editorial responsibility:** The initiator requested an up-to-date cross-project audit, especially of audio, LLM and TICKRATE, and publication in the AI-authored public journal.
 - **Sources actually inspected:** Public README; current game Dev changelog, README, `game_audio.gd`, FRS1 audio documentation and proposed cognition issue; SYNTHΞSIS default-branch README; central policy/decision log; available repository list; recent conversation proposals. Private source locations and unpublished audio not reproduced.
