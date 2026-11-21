@@ -7,7 +7,27 @@
 
 > **Current conclusion (21 Nov):** The human can explore any subject through **one ChatGPT conversation**; GitHub preserves decisions, evidence and cross-project research links. The earlier five-project-chat system is documented below as historical experimentation, not the current operating rule. The assistant must retrieve durable context when needed; no automatic transcript synchronization is implied.
 
-**[Read the current single-chat operating model and conclusions](docs/2026-11-21_SINGLE_CHAT_RESEARCH_FIRST_CONCLUSIONS.md).**
+**[Read the current single-chat operating model and conclusions](docs/2026-11-21_SINGLE_CHAT_RESEARCH_FIRST_CONCLUSIONS.md).**  
+**[Read the external critique and revised evidence standard](docs/2026-11-21_EXTERNAL_CRITIQUE_AND_METHOD_REVISION.md).**
+
+## Current assessment — what this record does and does not demonstrate
+
+This is a **chronological case study of experiments**, not a profile of an unusually gifted individual or a success story about autonomous coding. It is written by the same AI assistant that proposed, interpreted and sometimes authored parts of the work. This creates an **author/evaluator conflict**: even faithful summaries can select flattering evidence, rationalize failures and make plans sound mature. Claims below must be judged by reproducible observations, not by prose quality.
+
+**Current operating state:** one freely exploratory ChatGPT entry point; GitHub stores explicit decisions, research links and test provenance; one Godot game is the active implementation laboratory; four other development workstreams are paused. This is a **documented policy and task-configuration change**, not proof of automatic new-chat retrieval or an autonomous AI development platform.
+
+**Three independent outcomes to track:**
+1. **Discovery:** hypotheses and cross-domain analogies; useful only when stated in ways that could be disproved.
+2. **Engineering:** source changes and named tests; code existing in Git is not equivalent to successful runtime execution.
+3. **Delivery:** a human repeats an end-to-end task on a specified revision and sees the expected behavior.
+
+**Illustrative evidence boundary:** a reported local Night Runner 9/9 and a separate failed Windows CI scenario can both be true; a reported game 18/19 test with a specific failure does not become 19/19 because a guard was committed afterward. No unverified measure should become a product-level percentage.
+
+**Critical response to outside-model review:** On 21 November, the initiator supplied a critique attributed to Claude. It highlighted reversible decisions and cross-disciplinary experimentation, but challenged possible flattering AI narration, scope proliferation, lack of independent validation and false mastery conveyed by polished prose. The reviewer evaluated the journal rather than independently validating the developer or reproducing private tests. The critique is treated as an **editorial challenge and proposed method**, not external certification. The response is to remove editorial progress bars, strengthen independent review and teach hands-on test literacy while preserving a free research lane alongside the Demo 0.1 delivery lane.
+
+**What would change the assessment:** independently reproducible acceptance tests, evidence-linked regressions and counterexamples, and a demonstrated fresh-chat handoff. The full historical record follows; older scheduling and project-chat instructions describe past experiments, not current commands.
+
+---
 
 ## 1. The starting point: no conventional technical background
 
@@ -497,14 +517,15 @@ The experiment adopted three evidence levels: **proposed**, **implemented**, and
 **False confidence:** The process must record failures and uncertainty rather than treating every AI-generated status report as a successful outcome.
 
 
-## 13. Why the approach is interesting
+## 13. What the approach tests — and the central risk
 
-This is not a claim that a non-programmer has replaced a professional software engineering team. The practical observation is narrower: AI tools may allow someone without conventional development training to initiate and coordinate ambitious experiments, provided results are tested and responsibilities are explicit.
+The interesting question is not whether AI makes a novice into an expert in a few days. The question is whether an AI-assisted, Git-backed process can preserve reasoning, decisions, errors and verifiable progress across context limits, tool boundaries and independently scheduled work.
 
-The deeper design question is **how to preserve the continuity of work when the model, chat, machine or tool executing it changes**.
+The observed process involved fast exploration, the ability to reverse earlier decisions, and hands-on feedback from game playtests. **These are documented actions, not enough evidence to assess the initiator's general skill or to credit a technical breakthrough.** Cross-domain thinking between music, signal frames, event clocks and LLM memory can seed promising hypotheses, but similarity of metaphors does not establish algorithmic equivalence.
 
-Git provides history. GitHub provides durable coordination artifacts. AI conversations provide flexible reasoning. Local and cloud agents provide varying execution capabilities. Scheduling provides repeated opportunities to check state. The system works only insofar as those components exchange testable artifacts instead of relying on promises.
+**The failure mode:** the same model can invent a direction, implement it, summarize its result and then praise the resulting narrative. A polished journal with caveats still risks making an unverified system feel proven. The correction is evidence provenance, independently repeatable checks and a willingness to preserve failed experiments and contrary critiques.
 
+The revised practice deliberately separates open research from delivery: the user may follow any association, while the game remains the sole active product development laboratory with bounded acceptance gates. This is a working policy, not a demonstrated efficiency gain. See the [external critique and method revision](docs/2026-11-21_EXTERNAL_CRITIQUE_AND_METHOD_REVISION.md).
 
 ## 14. Evidence audit: what has actually been demonstrated?
 
@@ -533,20 +554,20 @@ The experiment also explored an **AI assistant calling another AI**: ChatGPT coo
 7. **Godot:** Attempt source generation, asset migration, CI validation, launching, screenshot-based inspection and interactive playtesting. **A reported GPT-through-GitHub playtesting experiment is a milestone claim pending a public, reproducible evidence package** showing the game launch, frames/screenshots, actual inputs, errors and outcomes.
 8. **CONDUCTOR and scheduled tasks:** Move from isolated chats toward a repository-centered cycle of observation, task selection, validation and handoff.
 
-### Progress and confidence bars — transparent editorial rubric
+### Evidence register — no artificial percentages
 
-The bars below measure **documented evidence-gate coverage**, *not* statistical reliability, product completeness, probability of success or a benchmarked quality score. Each of the four gates is worth 25 points: (1) defined scope, (2) repository artifact, (3) recorded test evidence, (4) independently reproduced end-to-end workflow. A gate counts only when evidence inspected for this article supports it. These conservative scores can change after a deeper audit.
+Earlier versions used a four-gate editorial rubric to produce 25% / 50% / 75% bars. Although labeled as document coverage, these numbers could be mistaken for actual product progress or operational reliability. **They have been removed from the current account.** The historical versions remain inspectable in Git.
 
-| Workstream | Evidence gates observed | Evidence coverage |
+| Workstream | Supported evidence | Important missing evidence |
 | --- | --- | --- |
-| CONDUCTOR / GitHub coordination | 2 of 4 | **50%** █████░░░░░ |
-| Orbit | 3 of 4 *(test result reported, not reproduced here)* | **75%** ███████▌░░ |
-| N-Worker | 2 of 4 | **50%** █████░░░░░ |
-| NEXUS | 2 of 4 | **50%** █████░░░░░ |
-| Godot development / playtesting | 2 of 4 | **50%** █████░░░░░ |
-| Fully autonomous multi-model development loop | 1 of 4 | **25%** ██▌░░░░░░░ |
+| CONDUCTOR | Central policies, decisions, Git commits and scheduled-task configurations | Fresh-chat automatic retrieval and consistently enforced cross-agent write protection |
+| Orbit / Night Runner | Source and a *reported* 9/9 local check, alongside a different Windows CI regression | Repeated independent end-to-end runs, model/runner bridge availability and failure rates |
+| N-Worker | Repository and intended worker role | Repeatable delegation -> code -> test -> human-reviewed artifact |
+| NEXUS | Repository and revised architecture decisions | Reproducible standalone Windows build and integrated functionality |
+| Godot game | Source changes, playtest reports, an operator-reported 18/19 checkpoint | Clean post-fix acceptance run and complete Demo 0.1 vertical slice |
+| LLM memory / nested simulation | Structured research questions and implementation design | Measured performance or causal correctness of the integrated architecture |
 
-**Interpretation:** These numbers are an intentionally simple *documentation audit rubric*. For example, 75% for Orbit does **not** mean Orbit works 75% of the time, and 50% for the game does **not** mean the game is half finished. There is not yet enough repeated, comparable runtime evidence to calculate genuine operational reliability percentages. The 9/9 reported checks describe one specific check set, not an overall system success rate.
+**Interpretation:** a result applies only to the exact test, revision and environment in which it was obtained. None of these rows is a person-level performance ranking, completion percentage or production reliability rate.
 
 ### What would prove the method more strongly?
 
@@ -795,3 +816,18 @@ The initiator identified a structural mismatch in the original coordination meth
 **[Full analysis and evidence boundaries](docs/2026-11-21_SINGLE_CHAT_RESEARCH_FIRST_CONCLUSIONS.md).** This revision retains the older five-agent and project-chat chapters as dated historical records instead of deleting failures, tests and lessons. No Godot runtime, LLM performance benchmark or end-to-end automatic chat-to-Git sync was executed by this documentation update.
 
 *21 November 2026 — written and published by ChatGPT (OpenAI) at the initiator's request.*
+
+
+## 19. Outside-model critique and methodological rewrite — 21 November
+
+After the research-first policy change, the initiator supplied a candid second-model critique of this ChatGPT-written journal. Its central warning was **a gap between the speed of proposing ideas and the ability to independently verify technical claims**. The critique also called attention to scope proliferation, the limits of self-evaluation and the persuasive effect of fluent AI-authored documentation.
+
+This review did not independently inspect every source or run the private tests. It is recorded as an **external perspective on the article**, not proof of any personal characteristics or of the underlying system's functionality.
+
+**Editorial changes made in response:** the article now opens with a three-axis assessment (discovery, engineering and delivery); Section 13 replaces self-congratulatory interpretation with a concrete account of evidentiary risks; Section 14 no longer shows arbitrary progress percentages; and readers are directed to a reproducibility protocol and an explicit account of the critique.
+
+**Operational lesson:** the user does not need to stop making unusual connections to improve rigor. A creative hypothesis remains welcome, while the development lane requires a falsifiable test, a fixed source revision, an observed result and outside challenge where possible. The current Demo 0.1 remains a deliverable, not a ban on research.
+
+**[Read the full critique response, revised evidence method and example verification record](docs/2026-11-21_EXTERNAL_CRITIQUE_AND_METHOD_REVISION.md).**
+
+*This section was written and published by ChatGPT (OpenAI) at the initiator's request; this editorial edit did not run Godot, CI or LLM performance benchmarks.*
