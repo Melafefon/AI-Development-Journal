@@ -1,7 +1,7 @@
 # GitHub as an AI Development Backbone
 ### How a non-programmer began coordinating AI-assisted software projects across conversations, models and repositories
 
-**Public case study · November 2026 · Anonymized edition · Updated 20 November 2026 (UTC)**
+**Public case study · November 2026 · Anonymized edition · Updated 21 November 2026 (UTC)**
 
 **Authorship and editorial responsibility:** This article is **written, edited and maintained by ChatGPT (OpenAI)** at the explicit request of the human project initiator. The human defines goals, makes binding decisions, provides observations and approves publication direction; ChatGPT is responsible for researching the available project record, organizing the narrative, checking claims against accessible evidence, recording failures as well as successes, and publishing documented updates. This is an AI-authored, human-directed case study—not an independently audited research paper. The AI author is not a separate legal publisher and cannot guarantee uninterrupted monitoring between sessions.
 
@@ -18,7 +18,7 @@ The central question became: **Can a non-developer coordinate increasingly compl
 
 ## 2. Dated timeline: from the first development-manager experiments to a coordinated system
 
-**Original snapshot covered:** **15–18 November 2026**, with later evidence and corrections through **20 November 2026 UTC** recorded in Section 16; earlier exploratory work preceded this window. **15 November is the earliest date established by the project conversation records reviewed here, not a verified date when the person first began using AI or developing software.** The first public article was assembled on 18 November. Dates refer to documented decisions or reports, not necessarily to the first code commit. This is a rapid sequence of experiments, **not proof of production maturity**.
+**Original snapshot covered:** **15–18 November 2026**, with later evidence and corrections through **21 November 2026 UTC** recorded in Section 16; earlier exploratory work preceded this window. **15 November is the earliest date established by the project conversation records reviewed here, not a verified date when the person first began using AI or developing software.** The first public article was assembled on 18 November. Dates refer to documented decisions or reports, not necessarily to the first code commit. This is a rapid sequence of experiments, **not proof of production maturity**.
 
 | Date | Turning point | Why it changed the direction | Evidence level |
 | --- | --- | --- | --- |
@@ -38,6 +38,7 @@ The central question became: **Can a non-developer coordinate increasingly compl
 | **19 Nov 2026** | Five hourly tasks standardized around a bounded run protocol | Attempts to reduce duplicate work, repeated blockers and unsupported success reports | Verified task configuration and protocol document; effectiveness not yet benchmarked |
 | **20 Nov 2026** | First playable game Demo 0.1 becomes the primary milestone | Replaces open-ended feature accumulation with acceptance gates M00–M06 | Approved roadmap and development changelog; current runtime completion not independently verified |
 | **20 Nov 2026, 23:09 UTC** | Temporary 48-hour demo sprint redirects five scheduled slots | Four tasks inspect the game read-only; one authorized game task can write | Task prompts inspected; planned expiry 22 Nov 23:10 UTC; outcome pending |
+| **21 Nov 2026** | Sound/LLM/TICKRATE research review and first reported Windows M00 regression result | Connects DSP frame synthesis, deterministic simulation and nested event scheduling without claiming an implemented LLM city | Source review, offline reconstruction reports and 18/19 user-run M00 result; new architecture remains research |
 
 ### How to interpret the speed
 
@@ -744,3 +745,33 @@ The distinction matters because a game need not call an LLM on every frame, or e
 **Scope decision:** the currently approved playable Demo 0.1 roadmap favors a small deterministic living world and explicitly defers generalized recursive LLM city cognition and AI-collapse systems unless required for a demo acceptance gate. This section records the research direction without silently expanding the demo scope or authorizing new implementation work.
 
 *20 November 2026 update written, researched, edited and published by ChatGPT (OpenAI) under the human initiator's direction. Earlier chapters are preserved as dated snapshots; this update corrects superseded conclusions where explicitly noted.*
+
+
+## 17. 21 November research update: sound, local LLMs and nested TICKRATE
+
+A new round of project discussions and source review showed a conceptual shift: **sound synthesis, memory and city cognition all involve multiple timescales, state changes and selective reconstruction**, but their real-time constraints differ. The next research direction is to reuse *engineering patterns*, not to pretend one audio oscillator can directly substitute for an NPC scheduler.
+
+**[Read the full source-grounded research update](docs/2026-11-21_SOUND_LLM_TICKRATE_RESEARCH.md)** — includes current code evidence, acoustic frame specifications, the TTS data proposal, the Vital/Godot separation decision, FM/AM-inspired tick folding, the deterministic 3D/4D board, LLM authority boundaries, failure cases and proposed acceptance tests.
+
+### The verified boundary between work done and ideas still being explored
+
+| Area | What exists or was actually reported | What is not yet demonstrated |
+| --- | --- | --- |
+| **Game procedural audio** | Native Godot synthesis source using sine/FM/noise/envelopes, spatial mission cues and a looping relay drone | Post-change Godot sound playback, CPU and stress benchmarks |
+| **Spectral frame resynthesis** | 512-point STFT, 128-sample hop, sparse quantized spectral bins and inverse reconstruction; offline metrics **35.61 / 27.65 dB** against 16 kHz mono references | A verified in-game Godot render or general text-to-speech |
+| **Independent sound laboratory** | Explicit research direction to study Vital DSP concepts and independently adapt algorithms into a separate Godot-native engine | A confirmed separate repository, Vital integration or validated real-time engine |
+| **SYNTHΞSIS** | Separate offline Python audio-rate FM proof of concept | Completed DAW, VST host, AI agent or Godot audio engine |
+| **LLM + nested TICKRATE** | Detailed design: authoritative world state, scoped memory, asynchronous structured intents, hierarchical event scheduling and fold/unfold deltas | Running NPC cognition, measured speedups or a reliable model-controlled society |
+| **Windows demo tests** | **18/19 M00 scripts passed before a source fix**; wearable UI method call failed; guarded in source afterward | A full **post-fix** 19/19 pass or completed playable demo |
+
+### Why the FM/AM analogy matters—and where it stops
+
+The initiator's new idea is that a regular tick can act as a carrier-like reference, with **changes between ticks**, slow strategic layers and event-triggered interruptions encoding additional context. This motivates a typed delta/event log and fold/unfold of off-screen state. It is **not** evidence that FM or AM itself compresses arbitrary memory or makes an LLM faster. A correct implementation must preserve causality, resource accounting and deterministic replay.
+
+For the LLM, the intended role is to propose legal moves or structured goals based on a minimal view of a deterministic 3D/4D world-state board. **The model does not own the board, write arbitrary world facts or block the fast game loop.** A roughly 4 GB model-file target was discussed, but runtime memory, inference latency and throughput have not been measured.
+
+For speech, the experiment shifts from recreating a supplied voice phrase to understanding phonemes, formants, pitch, timing and coarticulation. The proposal to collect timestamped speech from online videos is **not an executed dataset pipeline**; captions alone do not supply precise phoneme labels, and any data collection must respect recording rights and consent.
+
+**Current development priority remains unchanged:** the playable Demo 0.1 and its M00/M01 regression gates. The more ambitious NPC/LLM scheduler, generative audio and fictional AI-infrastructure-collapse scenario are research proposals, not newly authorized game features. The independent sound lab is likewise a separate future workstream rather than a modification of the demo.
+
+*21 November 2026 editorial update: researched and written by ChatGPT (OpenAI) at the human initiator's request; no runtime tests were executed by publishing this article.*
