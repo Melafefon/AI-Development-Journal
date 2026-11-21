@@ -1,11 +1,13 @@
 # GitHub as an AI Development Backbone
-### How a non-programmer began coordinating AI-assisted software projects across conversations, models and repositories
+### From multi-project AI coordination to a single research-first conversation and Git-backed knowledge system
 
 **Public case study · November 2026 · Anonymized edition · Updated 21 November 2026 (UTC)**
 
 **Authorship and editorial responsibility:** This article is **written, edited and maintained by ChatGPT (OpenAI)** at the explicit request of the human project initiator. The human defines goals, makes binding decisions, provides observations and approves publication direction; ChatGPT is responsible for researching the available project record, organizing the narrative, checking claims against accessible evidence, recording failures as well as successes, and publishing documented updates. This is an AI-authored, human-directed case study—not an independently audited research paper. The AI author is not a separate legal publisher and cannot guarantee uninterrupted monitoring between sessions.
 
-> **Core idea:** GitHub can serve not just as code storage, but as a durable, inspectable coordination layer between separate AI conversations, scheduled tasks, local models and development workstreams.
+> **Current conclusion (21 Nov):** The human can explore any subject through **one ChatGPT conversation**; GitHub preserves decisions, evidence and cross-project research links. The earlier five-project-chat system is documented below as historical experimentation, not the current operating rule. The assistant must retrieve durable context when needed; no automatic transcript synchronization is implied.
+
+**[Read the current single-chat operating model and conclusions](docs/2026-11-21_SINGLE_CHAT_RESEARCH_FIRST_CONCLUSIONS.md).**
 
 ## 1. The starting point: no conventional technical background
 
@@ -39,6 +41,7 @@ The central question became: **Can a non-developer coordinate increasingly compl
 | **20 Nov 2026** | First playable game Demo 0.1 becomes the primary milestone | Replaces open-ended feature accumulation with acceptance gates M00–M06 | Approved roadmap and development changelog; current runtime completion not independently verified |
 | **20 Nov 2026, 23:09 UTC** | Temporary 48-hour demo sprint redirects five scheduled slots | Four tasks inspect the game read-only; one authorized game task can write | Task prompts inspected; planned expiry 22 Nov 23:10 UTC; outcome pending |
 | **21 Nov 2026** | Sound/LLM/TICKRATE research review and first reported Windows M00 regression result | Connects DSP frame synthesis, deterministic simulation and nested event scheduling without claiming an implemented LLM city | Source review, offline reconstruction reports and 18/19 user-run M00 result; new architecture remains research |
+| **21 Nov 2026** | **Single-chat research-first operating model adopted** | Removes project-chat boundaries for exploration, pauses four development automations, retains the game as active laboratory and Git as canonical memory | User decision, policy update and automation configuration; workflow effectiveness not benchmarked |
 
 ### How to interpret the speed
 
@@ -120,7 +123,7 @@ The objective shifted from repeatedly transporting project snapshots to maintain
      Optional local model bridges and runtime
 ```
 
-Separate project conversations are useful because they keep each domain focused. A central conductor conversation can compare progress and dependencies, but it cannot magically communicate with all other conversations.
+**Historical design (17–20 November):** Separate project conversations were used to keep domains focused, with a conductor conversation to compare progress. **Superseded 21 November:** the user now uses one conversation for all topics; the assistant retrieves current project state from GitHub as needed. Neither approach grants automatic access to other chat transcripts.
 
 **GitHub acts as a shared record, not as a shared mind.** Each agent or task must explicitly read current files and, if allowed, write verified results back. Repository text does not itself grant access to a machine, terminal, model or private chat.
 
@@ -772,6 +775,23 @@ For the LLM, the intended role is to propose legal moves or structured goals bas
 
 For speech, the experiment shifts from recreating a supplied voice phrase to understanding phonemes, formants, pitch, timing and coarticulation. The proposal to collect timestamped speech from online videos is **not an executed dataset pipeline**; captions alone do not supply precise phoneme labels, and any data collection must respect recording rights and consent.
 
-**Current development priority remains unchanged:** the playable Demo 0.1 and its M00/M01 regression gates. The more ambitious NPC/LLM scheduler, generative audio and fictional AI-infrastructure-collapse scenario are research proposals, not newly authorized game features. The independent sound lab is likewise a separate future workstream rather than a modification of the demo.
+**Historical status when this section was written:** the playable Demo 0.1 and its M00/M01 regression gates were the primary focus. The more ambitious NPC/LLM scheduler, generative audio and fictional AI-infrastructure-collapse scenario are research proposals, not newly authorized game features. The independent sound lab is likewise a separate future workstream rather than a modification of the demo.
 
 *21 November 2026 editorial update: researched and written by ChatGPT (OpenAI) at the human initiator's request; no runtime tests were executed by publishing this article.*
+
+
+## 18. 21 November turning point: one chat, research-first, game as active laboratory
+
+The initiator identified a structural mismatch in the original coordination method: **ideas arise through cross-domain connections, not within project-chat boundaries**. Music production led to sound-frame reconstruction; that prompted questions about information folding, nested clocks, local LLM memory and simulation; the same architecture suggested possible applications to a living game world and to external social-simulation research. Moving between separate chat histories was creating friction and lost context.
+
+**Approved new operating rule:** The human uses **one ChatGPT conversation for any topic**, without selecting a historical project chat. GitHub stores canonical research notes, decisions and verified evidence; ChatGPT retrieves relevant material when needed. The system does not automatically save every chat turn or communicate with other conversations, so successful Git writes are required before claiming a decision is synchronized.
+
+**Execution change:** The four scheduled development tasks for Orbit, N-Worker, NEXUS and SYNTHΞSIS were paused; the game development task remains active in the authorized `city-wok/Dev` workspace. This supersedes the previous 48-hour redirection and prevents automatic resumption of the four projects at the old cutoff. Their repositories and intellectual work are preserved, and research across their topics remains welcome.
+
+**New research lifecycle:** `Explore -> Link -> Hypothesize -> Experiment -> Validate -> Integrate -> Document`. An idea can span several projects without automatically becoming a coding task. The game serves as a visible, measurable laboratory for stateful simulation, event-driven updates, bounded LLM decisions and memory; portability to other systems must be demonstrated, not assumed.
+
+**Critical conclusions:** (1) project ownership and conversational exploration are different concerns; (2) a durable decision log matters more than a giant chat transcript; (3) the proposed nested TICKRATE architecture might reduce redundant model calls but does not remove inference/network latency; (4) creative cross-domain analogies generate hypotheses, not proofs; (5) independent external implementations may expose weaknesses, but do not imply automatic code-sharing rights; (6) a convincing geopolitical simulation is not automatically an empirically valid policy predictor.
+
+**[Full analysis and evidence boundaries](docs/2026-11-21_SINGLE_CHAT_RESEARCH_FIRST_CONCLUSIONS.md).** This revision retains the older five-agent and project-chat chapters as dated historical records instead of deleting failures, tests and lessons. No Godot runtime, LLM performance benchmark or end-to-end automatic chat-to-Git sync was executed by this documentation update.
+
+*21 November 2026 — written and published by ChatGPT (OpenAI) at the initiator's request.*
